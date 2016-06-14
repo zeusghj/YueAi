@@ -10,7 +10,6 @@
 #import "BaseNavigationController.h"
 #import "GDCustomCell.h"
 #import "HJAvatarBrowser.h"
-#import "ShowImageController.h"
 
 @interface GirlDetailViewController ()<UITableViewDelegate, UITableViewDataSource,
                                        UICollectionViewDelegate, UICollectionViewDataSource,
@@ -273,28 +272,7 @@
     
     GDCustomCell *cell = (GDCustomCell *)[self collectionView:collectionView cellForItemAtIndexPath:indexPath];
     
-//    [HJAvatarBrowser showImage:cell.imageView];
-    
-    frame_first = CGRectMake(0, 0, SCREEN_WIDTH, 384*height_scale);
-    
-    ShowImageController *imgController = [[ShowImageController alloc] init];
-    
-    NSArray *imgdata6 = @[@[@"http://h.hiphotos.baidu.com/album/scrop%3D236%3Bq%3D90/sign=2fab0be130adcbef056a3959dc921cee/4b90f603738da977c61bb40eb151f8198618e3db.jpg",@"236",@"236"],@[@"http://h.hiphotos.baidu.com/album/scrop%3D236%3Bq%3D90/sign=2fab0be130adcbef056a3959dc921cee/4b90f603738da977c61bb40eb151f8198618e3db.jpg",@"236",@"236"],@[@"http://h.hiphotos.baidu.com/album/scrop%3D236%3Bq%3D90/sign=2fab0be130adcbef056a3959dc921cee/4b90f603738da977c61bb40eb151f8198618e3db.jpg",@"236",@"236"],@[@"http://h.hiphotos.baidu.com/album/scrop%3D236%3Bq%3D90/sign=2fab0be130adcbef056a3959dc921cee/4b90f603738da977c61bb40eb151f8198618e3db.jpg",@"236",@"236"],@[@"http://h.hiphotos.baidu.com/album/scrop%3D236%3Bq%3D90/sign=2fab0be130adcbef056a3959dc921cee/4b90f603738da977c61bb40eb151f8198618e3db.jpg",@"236",@"236"],@[@"http://h.hiphotos.baidu.com/album/scrop%3D236%3Bq%3D90/sign=2fab0be130adcbef056a3959dc921cee/4b90f603738da977c61bb40eb151f8198618e3db.jpg",@"236",@"236"]];
-    
-    NSMutableArray *addimg = [NSMutableArray new];
-    for (int i = 0; i < [imgdata6 count]; i++) {
-        ImageModel *model = [ImageModel new];
-        model.imageUrl = [[imgdata6 objectAtIndex:i] objectAtIndex:0];
-        model.width = [[[imgdata6 objectAtIndex:i] objectAtIndex:1] floatValue];
-        model.height = [[[imgdata6 objectAtIndex:i] objectAtIndex:2] floatValue];
-        [addimg addObject:model];
-    }
-    imgController.data = (NSArray *)addimg;
-    
-    [self presentViewController:imgController animated:NO completion:^{
-        
-    }];
-    [imgController showImageView:frame_first image:cell.imageView.image w:358 h:440];
+    [HJAvatarBrowser showImage:cell.imageView];
     
 }
 

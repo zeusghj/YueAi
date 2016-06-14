@@ -33,8 +33,6 @@
 		B944B4D21CF84155006B6D93 /* YuanFenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B944B4CE1CF84155006B6D93 /* YuanFenViewController.m */; };
 		B944B4D71CF85246006B6D93 /* YFCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B944B4D61CF85246006B6D93 /* YFCustomCell.m */; };
 		B944B4D91CF8525E006B6D93 /* YFCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B944B4D81CF8525E006B6D93 /* YFCustomCell.xib */; };
-		B9478D581D06AEA7007AAAC1 /* ShowImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478D571D06AEA7007AAAC1 /* ShowImageController.m */; };
-		B9478D5B1D06BE6E007AAAC1 /* ShowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478D5A1D06BE6E007AAAC1 /* ShowImageView.m */; };
 		B9478D5E1D06C59B007AAAC1 /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478D5D1D06C59B007AAAC1 /* ImageModel.m */; };
 /* End PBXBuildFile section */
 
@@ -84,10 +82,6 @@
 		B944B4D51CF85246006B6D93 /* YFCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFCustomCell.h; sourceTree = "<group>"; };
 		B944B4D61CF85246006B6D93 /* YFCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFCustomCell.m; sourceTree = "<group>"; };
 		B944B4D81CF8525E006B6D93 /* YFCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YFCustomCell.xib; sourceTree = "<group>"; };
-		B9478D561D06AEA7007AAAC1 /* ShowImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowImageController.h; sourceTree = "<group>"; };
-		B9478D571D06AEA7007AAAC1 /* ShowImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowImageController.m; sourceTree = "<group>"; };
-		B9478D591D06BE6E007AAAC1 /* ShowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowImageView.h; sourceTree = "<group>"; };
-		B9478D5A1D06BE6E007AAAC1 /* ShowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowImageView.m; sourceTree = "<group>"; };
 		B9478D5C1D06C59B007AAAC1 /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
 		B9478D5D1D06C59B007AAAC1 /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
 		D967A46A904722CEF7B04DA0 /* Pods-YueAi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YueAi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YueAi/Pods-YueAi.debug.xcconfig"; sourceTree = "<group>"; };
@@ -224,8 +218,6 @@
 			children = (
 				B92784141D057C22009715E5 /* FullSizeImagesControl.h */,
 				B92784151D057C22009715E5 /* FullSizeImagesControl.m */,
-				B9478D591D06BE6E007AAAC1 /* ShowImageView.h */,
-				B9478D5A1D06BE6E007AAAC1 /* ShowImageView.m */,
 			);
 			path = FullSizeImage;
 			sourceTree = "<group>";
@@ -238,8 +230,6 @@
 				B944B4CE1CF84155006B6D93 /* YuanFenViewController.m */,
 				B92783C61CFC1CD8009715E5 /* GirlDetailViewController.h */,
 				B92783C71CFC1CD8009715E5 /* GirlDetailViewController.m */,
-				B9478D561D06AEA7007AAAC1 /* ShowImageController.h */,
-				B9478D571D06AEA7007AAAC1 /* ShowImageController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -419,7 +409,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9478D5B1D06BE6E007AAAC1 /* ShowImageView.m in Sources */,
 				B90D76071CF6EE6A00964D3D /* MainTabViewController.m in Sources */,
 				B944B4D71CF85246006B6D93 /* YFCustomCell.m in Sources */,
 				B9478D5E1D06C59B007AAAC1 /* ImageModel.m in Sources */,
@@ -429,7 +418,6 @@
 				B90D761F1CF6EFC500964D3D /* NeighbourViewController.m in Sources */,
 				B92784161D057C22009715E5 /* FullSizeImagesControl.m in Sources */,
 				B927840C1D01787B009715E5 /* BaseNavigationController.m in Sources */,
-				B9478D581D06AEA7007AAAC1 /* ShowImageController.m in Sources */,
 				B90D76191CF6EFA700964D3D /* MessageBoxViewController.m in Sources */,
 				B90D75F01CF6EDF700964D3D /* main.m in Sources */,
 				B90D761C1CF6EFB600964D3D /* MyViewController.m in Sources */,
