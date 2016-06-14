@@ -9,7 +9,9 @@
 #import "GirlDetailViewController.h"
 #import "BaseNavigationController.h"
 #import "GDCustomCell.h"
-#import "HJAvatarBrowser.h"
+#import "JLPhoto.h"
+#import "JLPhotoBrowser.h"
+#import "Member.h"
 
 @interface GirlDetailViewController ()<UITableViewDelegate, UITableViewDataSource,
                                        UICollectionViewDelegate, UICollectionViewDataSource,
@@ -247,12 +249,6 @@
     return 2;
 }
 
-#pragma mark 定义展示的Section的个数
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
-
 #pragma mark 每个UICollectionView展示的内容
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -268,11 +264,30 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"indexPath.section = %ld, indexPath.item = %ld", indexPath.section, indexPath.item);
+    NSMutableArray *photos = [NSMutableArray array];
     
-    GDCustomCell *cell = (GDCustomCell *)[self collectionView:collectionView cellForItemAtIndexPath:indexPath];
+    Member* member = [[Member alloc] init];
     
-    [HJAvatarBrowser showImage:cell.imageView];
+    for (int i=0; i<member.bigImgUrls.count; i++) {
+        
+        NSIndexPath* ipath = [NSIndexPath indexPathForItem:i inSection:0];
+        GDCustomCell *tempCell = (GDCustomCell *)[self collectionView:collectionView cellForItemAtIndexPath:ipath];
+        UIImageView *child = tempCell.imageView;
+        JLPhoto *photo = [[JLPhoto alloc] init];
+        photo.sourceImageView = child;
+        photo.bigImgUrl = member.bigImgUrls[i];
+        photo.originFrame = CGRectMake(0, 0, SCREEN_WIDTH, 384.f*height_scale);
+        photo.tag = i;
+        [photos addObject:photo];
+        
+    }
+    
+    JLPhotoBrowser *photoBrowser = [[JLPhotoBrowser alloc] init];
+    photoBrowser.photos = photos;
+    photoBrowser.currentIndex = indexPath.item;
+    [photoBrowser show];
+    
+//    [HJAvatarBrowser showImage:cell.imageView];
     
 }
 
@@ -288,7 +303,7 @@
         
         CGFloat offsetY = scrollView.contentOffset.y;
         
-        NSLog(@"offsetY = %lf", offsetY) ;
+//        NSLog(@"offsetY = %lf", offsetY) ;
         
         if (offsetY > -365.f*height_scale) {
             self.collectionView.frame = CGRectMake(0, -100*height_scale + offsetY  , SCREEN_WIDTH, SCREEN_HEIGHT);

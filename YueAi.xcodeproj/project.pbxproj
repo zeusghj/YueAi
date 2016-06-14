@@ -13,27 +13,35 @@
 		B90D75F91CF6EDF700964D3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90D75F71CF6EDF700964D3D /* Main.storyboard */; };
 		B90D75FB1CF6EDF700964D3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B90D75FA1CF6EDF700964D3D /* Assets.xcassets */; };
 		B90D75FE1CF6EDF700964D3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90D75FC1CF6EDF700964D3D /* LaunchScreen.storyboard */; };
-		B90D76071CF6EE6A00964D3D /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90D76061CF6EE6A00964D3D /* MainTabViewController.m */; };
-		B90D76101CF6EF5600964D3D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90D760F1CF6EF5600964D3D /* Search.storyboard */; };
-		B90D76121CF6EF6300964D3D /* Neighbour.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90D76111CF6EF6300964D3D /* Neighbour.storyboard */; };
-		B90D76141CF6EF6E00964D3D /* My.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90D76131CF6EF6E00964D3D /* My.storyboard */; };
-		B90D76161CF6EF7E00964D3D /* MessageBox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90D76151CF6EF7E00964D3D /* MessageBox.storyboard */; };
-		B90D76191CF6EFA700964D3D /* MessageBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90D76181CF6EFA700964D3D /* MessageBoxViewController.m */; };
-		B90D761C1CF6EFB600964D3D /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90D761B1CF6EFB600964D3D /* MyViewController.m */; };
-		B90D761F1CF6EFC500964D3D /* NeighbourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90D761E1CF6EFC500964D3D /* NeighbourViewController.m */; };
-		B90D76221CF6EFD400964D3D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90D76211CF6EFD400964D3D /* SearchViewController.m */; };
-		B92783C81CFC1CD8009715E5 /* GirlDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92783C71CFC1CD8009715E5 /* GirlDetailViewController.m */; };
-		B92784071D013189009715E5 /* GDCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B92784061D013189009715E5 /* GDCustomCell.m */; };
-		B92784091D01319F009715E5 /* GDCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B92784081D01319F009715E5 /* GDCustomCell.xib */; };
 		B927840C1D01787B009715E5 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B927840B1D01787B009715E5 /* BaseNavigationController.m */; };
-		B927840F1D051116009715E5 /* HJAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = B927840E1D051116009715E5 /* HJAvatarBrowser.m */; };
-		B92784161D057C22009715E5 /* FullSizeImagesControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B92784151D057C22009715E5 /* FullSizeImagesControl.m */; };
-		B944B4CA1CF83C68006B6D93 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B944B4C91CF83C68006B6D93 /* BaseViewController.m */; };
-		B944B4D11CF84155006B6D93 /* YuanFen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B944B4CC1CF84155006B6D93 /* YuanFen.storyboard */; };
-		B944B4D21CF84155006B6D93 /* YuanFenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B944B4CE1CF84155006B6D93 /* YuanFenViewController.m */; };
-		B944B4D71CF85246006B6D93 /* YFCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B944B4D61CF85246006B6D93 /* YFCustomCell.m */; };
-		B944B4D91CF8525E006B6D93 /* YFCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B944B4D81CF8525E006B6D93 /* YFCustomCell.xib */; };
-		B9478D5E1D06C59B007AAAC1 /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478D5D1D06C59B007AAAC1 /* ImageModel.m */; };
+		B9478D791D0FD7FD007AAAC1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478D761D0FD7FD007AAAC1 /* BaseViewController.m */; };
+		B9478D7A1D0FD7FD007AAAC1 /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478D781D0FD7FD007AAAC1 /* MainTabViewController.m */; };
+		B9478DA31D0FD9EA007AAAC1 /* SDBallProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478D951D0FD9EA007AAAC1 /* SDBallProgressView.m */; };
+		B9478DA41D0FD9EA007AAAC1 /* SDBaseProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478D971D0FD9EA007AAAC1 /* SDBaseProgressView.m */; };
+		B9478DA51D0FD9EA007AAAC1 /* SDLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478D991D0FD9EA007AAAC1 /* SDLoopProgressView.m */; };
+		B9478DA61D0FD9EA007AAAC1 /* SDPieLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478D9B1D0FD9EA007AAAC1 /* SDPieLoopProgressView.m */; };
+		B9478DA71D0FD9EA007AAAC1 /* SDPieProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478D9D1D0FD9EA007AAAC1 /* SDPieProgressView.m */; };
+		B9478DA81D0FD9EA007AAAC1 /* SDRotationLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DA01D0FD9EA007AAAC1 /* SDRotationLoopProgressView.m */; };
+		B9478DA91D0FD9EA007AAAC1 /* SDTransparentPieProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DA21D0FD9EA007AAAC1 /* SDTransparentPieProgressView.m */; };
+		B9478DAD1D0FDE70007AAAC1 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DAC1D0FDE70007AAAC1 /* Member.m */; };
+		B9478DD61D0FEFA7007AAAC1 /* MessageBox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9478DB11D0FEFA7007AAAC1 /* MessageBox.storyboard */; };
+		B9478DD71D0FEFA7007AAAC1 /* MessageBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DB31D0FEFA7007AAAC1 /* MessageBoxViewController.m */; };
+		B9478DD81D0FEFA7007AAAC1 /* My.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9478DB51D0FEFA7007AAAC1 /* My.storyboard */; };
+		B9478DD91D0FEFA7007AAAC1 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DB71D0FEFA7007AAAC1 /* MyViewController.m */; };
+		B9478DDA1D0FEFA7007AAAC1 /* Neighbour.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9478DB91D0FEFA7007AAAC1 /* Neighbour.storyboard */; };
+		B9478DDB1D0FEFA7007AAAC1 /* NeighbourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DBB1D0FEFA7007AAAC1 /* NeighbourViewController.m */; };
+		B9478DDC1D0FEFA7007AAAC1 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9478DBD1D0FEFA7007AAAC1 /* Search.storyboard */; };
+		B9478DDD1D0FEFA7007AAAC1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DBF1D0FEFA7007AAAC1 /* SearchViewController.m */; };
+		B9478DDE1D0FEFA7007AAAC1 /* GirlDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DC31D0FEFA7007AAAC1 /* GirlDetailViewController.m */; };
+		B9478DDF1D0FEFA7007AAAC1 /* YuanFen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9478DC41D0FEFA7007AAAC1 /* YuanFen.storyboard */; };
+		B9478DE01D0FEFA7007AAAC1 /* YuanFenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DC61D0FEFA7007AAAC1 /* YuanFenViewController.m */; };
+		B9478DE11D0FEFA7007AAAC1 /* FullSizeImagesControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DCB1D0FEFA7007AAAC1 /* FullSizeImagesControl.m */; };
+		B9478DE21D0FEFA7007AAAC1 /* GDCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DCD1D0FEFA7007AAAC1 /* GDCustomCell.m */; };
+		B9478DE31D0FEFA7007AAAC1 /* GDCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9478DCE1D0FEFA7007AAAC1 /* GDCustomCell.xib */; };
+		B9478DE41D0FEFA7007AAAC1 /* JLPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DD01D0FEFA7007AAAC1 /* JLPhoto.m */; };
+		B9478DE51D0FEFA7007AAAC1 /* JLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DD21D0FEFA7007AAAC1 /* JLPhotoBrowser.m */; };
+		B9478DE61D0FEFA7007AAAC1 /* YFCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DD41D0FEFA7007AAAC1 /* YFCustomCell.m */; };
+		B9478DE71D0FEFA7007AAAC1 /* YFCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9478DD51D0FEFA7007AAAC1 /* YFCustomCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,43 +55,60 @@
 		B90D75FA1CF6EDF700964D3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B90D75FD1CF6EDF700964D3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B90D75FF1CF6EDF700964D3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B90D76051CF6EE6A00964D3D /* MainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTabViewController.h; path = YueAi/MainTabViewController.h; sourceTree = SOURCE_ROOT; };
-		B90D76061CF6EE6A00964D3D /* MainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTabViewController.m; path = YueAi/MainTabViewController.m; sourceTree = SOURCE_ROOT; };
-		B90D760F1CF6EF5600964D3D /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		B90D76111CF6EF6300964D3D /* Neighbour.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Neighbour.storyboard; sourceTree = "<group>"; };
-		B90D76131CF6EF6E00964D3D /* My.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = My.storyboard; sourceTree = "<group>"; };
-		B90D76151CF6EF7E00964D3D /* MessageBox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageBox.storyboard; sourceTree = "<group>"; };
-		B90D76171CF6EFA700964D3D /* MessageBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBoxViewController.h; sourceTree = "<group>"; };
-		B90D76181CF6EFA700964D3D /* MessageBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBoxViewController.m; sourceTree = "<group>"; };
-		B90D761A1CF6EFB600964D3D /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
-		B90D761B1CF6EFB600964D3D /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
-		B90D761D1CF6EFC500964D3D /* NeighbourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeighbourViewController.h; sourceTree = "<group>"; };
-		B90D761E1CF6EFC500964D3D /* NeighbourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeighbourViewController.m; sourceTree = "<group>"; };
-		B90D76201CF6EFD400964D3D /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		B90D76211CF6EFD400964D3D /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		B92783C61CFC1CD8009715E5 /* GirlDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GirlDetailViewController.h; sourceTree = "<group>"; };
-		B92783C71CFC1CD8009715E5 /* GirlDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GirlDetailViewController.m; sourceTree = "<group>"; };
-		B92784051D013189009715E5 /* GDCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDCustomCell.h; sourceTree = "<group>"; };
-		B92784061D013189009715E5 /* GDCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDCustomCell.m; sourceTree = "<group>"; };
-		B92784081D01319F009715E5 /* GDCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDCustomCell.xib; sourceTree = "<group>"; };
 		B927840A1D01787B009715E5 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		B927840B1D01787B009715E5 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
-		B927840D1D051116009715E5 /* HJAvatarBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJAvatarBrowser.h; sourceTree = "<group>"; };
-		B927840E1D051116009715E5 /* HJAvatarBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJAvatarBrowser.m; sourceTree = "<group>"; };
-		B92784141D057C22009715E5 /* FullSizeImagesControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullSizeImagesControl.h; sourceTree = "<group>"; };
-		B92784151D057C22009715E5 /* FullSizeImagesControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullSizeImagesControl.m; sourceTree = "<group>"; };
-		B944B4C61CF80D88006B6D93 /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CommonDefine.h; path = ../CommonDefine.h; sourceTree = "<group>"; };
 		B944B4C71CF80E3F006B6D93 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		B944B4C81CF83C68006B6D93 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = ../BaseViewController.h; sourceTree = "<group>"; };
-		B944B4C91CF83C68006B6D93 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = ../BaseViewController.m; sourceTree = "<group>"; };
-		B944B4CC1CF84155006B6D93 /* YuanFen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YuanFen.storyboard; sourceTree = "<group>"; };
-		B944B4CD1CF84155006B6D93 /* YuanFenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuanFenViewController.h; sourceTree = "<group>"; };
-		B944B4CE1CF84155006B6D93 /* YuanFenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuanFenViewController.m; sourceTree = "<group>"; };
-		B944B4D51CF85246006B6D93 /* YFCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFCustomCell.h; sourceTree = "<group>"; };
-		B944B4D61CF85246006B6D93 /* YFCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFCustomCell.m; sourceTree = "<group>"; };
-		B944B4D81CF8525E006B6D93 /* YFCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YFCustomCell.xib; sourceTree = "<group>"; };
-		B9478D5C1D06C59B007AAAC1 /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
-		B9478D5D1D06C59B007AAAC1 /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
+		B9478D751D0FD7FD007AAAC1 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		B9478D761D0FD7FD007AAAC1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		B9478D771D0FD7FD007AAAC1 /* MainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
+		B9478D781D0FD7FD007AAAC1 /* MainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
+		B9478D941D0FD9EA007AAAC1 /* SDBallProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBallProgressView.h; sourceTree = "<group>"; };
+		B9478D951D0FD9EA007AAAC1 /* SDBallProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBallProgressView.m; sourceTree = "<group>"; };
+		B9478D961D0FD9EA007AAAC1 /* SDBaseProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBaseProgressView.h; sourceTree = "<group>"; };
+		B9478D971D0FD9EA007AAAC1 /* SDBaseProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBaseProgressView.m; sourceTree = "<group>"; };
+		B9478D981D0FD9EA007AAAC1 /* SDLoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLoopProgressView.h; sourceTree = "<group>"; };
+		B9478D991D0FD9EA007AAAC1 /* SDLoopProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLoopProgressView.m; sourceTree = "<group>"; };
+		B9478D9A1D0FD9EA007AAAC1 /* SDPieLoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPieLoopProgressView.h; sourceTree = "<group>"; };
+		B9478D9B1D0FD9EA007AAAC1 /* SDPieLoopProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPieLoopProgressView.m; sourceTree = "<group>"; };
+		B9478D9C1D0FD9EA007AAAC1 /* SDPieProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPieProgressView.h; sourceTree = "<group>"; };
+		B9478D9D1D0FD9EA007AAAC1 /* SDPieProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPieProgressView.m; sourceTree = "<group>"; };
+		B9478D9E1D0FD9EA007AAAC1 /* SDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDProgressView.h; sourceTree = "<group>"; };
+		B9478D9F1D0FD9EA007AAAC1 /* SDRotationLoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRotationLoopProgressView.h; sourceTree = "<group>"; };
+		B9478DA01D0FD9EA007AAAC1 /* SDRotationLoopProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRotationLoopProgressView.m; sourceTree = "<group>"; };
+		B9478DA11D0FD9EA007AAAC1 /* SDTransparentPieProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTransparentPieProgressView.h; sourceTree = "<group>"; };
+		B9478DA21D0FD9EA007AAAC1 /* SDTransparentPieProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTransparentPieProgressView.m; sourceTree = "<group>"; };
+		B9478DAB1D0FDE70007AAAC1 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
+		B9478DAC1D0FDE70007AAAC1 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
+		B9478DAE1D0FEF2A007AAAC1 /* CommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
+		B9478DB11D0FEFA7007AAAC1 /* MessageBox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageBox.storyboard; sourceTree = "<group>"; };
+		B9478DB21D0FEFA7007AAAC1 /* MessageBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBoxViewController.h; sourceTree = "<group>"; };
+		B9478DB31D0FEFA7007AAAC1 /* MessageBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBoxViewController.m; sourceTree = "<group>"; };
+		B9478DB51D0FEFA7007AAAC1 /* My.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = My.storyboard; sourceTree = "<group>"; };
+		B9478DB61D0FEFA7007AAAC1 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		B9478DB71D0FEFA7007AAAC1 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		B9478DB91D0FEFA7007AAAC1 /* Neighbour.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Neighbour.storyboard; sourceTree = "<group>"; };
+		B9478DBA1D0FEFA7007AAAC1 /* NeighbourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeighbourViewController.h; sourceTree = "<group>"; };
+		B9478DBB1D0FEFA7007AAAC1 /* NeighbourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeighbourViewController.m; sourceTree = "<group>"; };
+		B9478DBD1D0FEFA7007AAAC1 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		B9478DBE1D0FEFA7007AAAC1 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		B9478DBF1D0FEFA7007AAAC1 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		B9478DC21D0FEFA7007AAAC1 /* GirlDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GirlDetailViewController.h; sourceTree = "<group>"; };
+		B9478DC31D0FEFA7007AAAC1 /* GirlDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GirlDetailViewController.m; sourceTree = "<group>"; };
+		B9478DC41D0FEFA7007AAAC1 /* YuanFen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YuanFen.storyboard; sourceTree = "<group>"; };
+		B9478DC51D0FEFA7007AAAC1 /* YuanFenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuanFenViewController.h; sourceTree = "<group>"; };
+		B9478DC61D0FEFA7007AAAC1 /* YuanFenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuanFenViewController.m; sourceTree = "<group>"; };
+		B9478DCA1D0FEFA7007AAAC1 /* FullSizeImagesControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullSizeImagesControl.h; sourceTree = "<group>"; };
+		B9478DCB1D0FEFA7007AAAC1 /* FullSizeImagesControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullSizeImagesControl.m; sourceTree = "<group>"; };
+		B9478DCC1D0FEFA7007AAAC1 /* GDCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDCustomCell.h; sourceTree = "<group>"; };
+		B9478DCD1D0FEFA7007AAAC1 /* GDCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDCustomCell.m; sourceTree = "<group>"; };
+		B9478DCE1D0FEFA7007AAAC1 /* GDCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDCustomCell.xib; sourceTree = "<group>"; };
+		B9478DCF1D0FEFA7007AAAC1 /* JLPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLPhoto.h; sourceTree = "<group>"; };
+		B9478DD01D0FEFA7007AAAC1 /* JLPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLPhoto.m; sourceTree = "<group>"; };
+		B9478DD11D0FEFA7007AAAC1 /* JLPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLPhotoBrowser.h; sourceTree = "<group>"; };
+		B9478DD21D0FEFA7007AAAC1 /* JLPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLPhotoBrowser.m; sourceTree = "<group>"; };
+		B9478DD31D0FEFA7007AAAC1 /* YFCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFCustomCell.h; sourceTree = "<group>"; };
+		B9478DD41D0FEFA7007AAAC1 /* YFCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFCustomCell.m; sourceTree = "<group>"; };
+		B9478DD51D0FEFA7007AAAC1 /* YFCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YFCustomCell.xib; sourceTree = "<group>"; };
 		D967A46A904722CEF7B04DA0 /* Pods-YueAi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YueAi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YueAi/Pods-YueAi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,13 +162,11 @@
 		B90D75ED1CF6EDF700964D3D /* YueAi */ = {
 			isa = PBXGroup;
 			children = (
+				B9478DAF1D0FEFA7007AAAC1 /* Controllers */,
+				B9478DAA1D0FDE5D007AAAC1 /* User */,
+				B9478D7B1D0FD834007AAAC1 /* Lib */,
 				B944B4D31CF84540006B6D93 /* Public */,
 				B944B4D41CF8456F006B6D93 /* Main */,
-				B90D76081CF6EF0B00964D3D /* MessageBox */,
-				B90D76091CF6EF0B00964D3D /* My */,
-				B90D760A1CF6EF0B00964D3D /* Neighbour */,
-				B90D760B1CF6EF0B00964D3D /* Search */,
-				B90D760C1CF6EF0B00964D3D /* YuanFen */,
 				B90D75F11CF6EDF700964D3D /* AppDelegate.h */,
 				B90D75F21CF6EDF700964D3D /* AppDelegate.m */,
 				B90D75FA1CF6EDF700964D3D /* Assets.xcassets */,
@@ -163,106 +186,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B90D76081CF6EF0B00964D3D /* MessageBox */ = {
-			isa = PBXGroup;
-			children = (
-				B90D76151CF6EF7E00964D3D /* MessageBox.storyboard */,
-				B90D76171CF6EFA700964D3D /* MessageBoxViewController.h */,
-				B90D76181CF6EFA700964D3D /* MessageBoxViewController.m */,
-			);
-			path = MessageBox;
-			sourceTree = "<group>";
-		};
-		B90D76091CF6EF0B00964D3D /* My */ = {
-			isa = PBXGroup;
-			children = (
-				B90D76131CF6EF6E00964D3D /* My.storyboard */,
-				B90D761A1CF6EFB600964D3D /* MyViewController.h */,
-				B90D761B1CF6EFB600964D3D /* MyViewController.m */,
-			);
-			path = My;
-			sourceTree = "<group>";
-		};
-		B90D760A1CF6EF0B00964D3D /* Neighbour */ = {
-			isa = PBXGroup;
-			children = (
-				B90D76111CF6EF6300964D3D /* Neighbour.storyboard */,
-				B90D761D1CF6EFC500964D3D /* NeighbourViewController.h */,
-				B90D761E1CF6EFC500964D3D /* NeighbourViewController.m */,
-			);
-			path = Neighbour;
-			sourceTree = "<group>";
-		};
-		B90D760B1CF6EF0B00964D3D /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				B90D760F1CF6EF5600964D3D /* Search.storyboard */,
-				B90D76201CF6EFD400964D3D /* SearchViewController.h */,
-				B90D76211CF6EFD400964D3D /* SearchViewController.m */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		B90D760C1CF6EF0B00964D3D /* YuanFen */ = {
-			isa = PBXGroup;
-			children = (
-				B944B4CB1CF84155006B6D93 /* Controller */,
-				B944B4CF1CF84155006B6D93 /* Model */,
-				B944B4D01CF84155006B6D93 /* View */,
-			);
-			path = YuanFen;
-			sourceTree = "<group>";
-		};
-		B92784101D057B5D009715E5 /* FullSizeImage */ = {
-			isa = PBXGroup;
-			children = (
-				B92784141D057C22009715E5 /* FullSizeImagesControl.h */,
-				B92784151D057C22009715E5 /* FullSizeImagesControl.m */,
-			);
-			path = FullSizeImage;
-			sourceTree = "<group>";
-		};
-		B944B4CB1CF84155006B6D93 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				B944B4CC1CF84155006B6D93 /* YuanFen.storyboard */,
-				B944B4CD1CF84155006B6D93 /* YuanFenViewController.h */,
-				B944B4CE1CF84155006B6D93 /* YuanFenViewController.m */,
-				B92783C61CFC1CD8009715E5 /* GirlDetailViewController.h */,
-				B92783C71CFC1CD8009715E5 /* GirlDetailViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		B944B4CF1CF84155006B6D93 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B927840D1D051116009715E5 /* HJAvatarBrowser.h */,
-				B927840E1D051116009715E5 /* HJAvatarBrowser.m */,
-				B9478D5C1D06C59B007AAAC1 /* ImageModel.h */,
-				B9478D5D1D06C59B007AAAC1 /* ImageModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B944B4D01CF84155006B6D93 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B92784101D057B5D009715E5 /* FullSizeImage */,
-				B944B4D51CF85246006B6D93 /* YFCustomCell.h */,
-				B944B4D61CF85246006B6D93 /* YFCustomCell.m */,
-				B944B4D81CF8525E006B6D93 /* YFCustomCell.xib */,
-				B92784051D013189009715E5 /* GDCustomCell.h */,
-				B92784061D013189009715E5 /* GDCustomCell.m */,
-				B92784081D01319F009715E5 /* GDCustomCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		B944B4D31CF84540006B6D93 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				B944B4C61CF80D88006B6D93 /* CommonDefine.h */,
+				B9478DAE1D0FEF2A007AAAC1 /* CommonDefine.h */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -270,15 +197,162 @@
 		B944B4D41CF8456F006B6D93 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				B90D76051CF6EE6A00964D3D /* MainTabViewController.h */,
-				B90D76061CF6EE6A00964D3D /* MainTabViewController.m */,
-				B944B4C81CF83C68006B6D93 /* BaseViewController.h */,
-				B944B4C91CF83C68006B6D93 /* BaseViewController.m */,
+				B9478D751D0FD7FD007AAAC1 /* BaseViewController.h */,
+				B9478D761D0FD7FD007AAAC1 /* BaseViewController.m */,
+				B9478D771D0FD7FD007AAAC1 /* MainTabViewController.h */,
+				B9478D781D0FD7FD007AAAC1 /* MainTabViewController.m */,
 				B927840A1D01787B009715E5 /* BaseNavigationController.h */,
 				B927840B1D01787B009715E5 /* BaseNavigationController.m */,
 				B90D75F71CF6EDF700964D3D /* Main.storyboard */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		B9478D7B1D0FD834007AAAC1 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				B9478D931D0FD9EA007AAAC1 /* SDProgressView */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		B9478D931D0FD9EA007AAAC1 /* SDProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				B9478D941D0FD9EA007AAAC1 /* SDBallProgressView.h */,
+				B9478D951D0FD9EA007AAAC1 /* SDBallProgressView.m */,
+				B9478D961D0FD9EA007AAAC1 /* SDBaseProgressView.h */,
+				B9478D971D0FD9EA007AAAC1 /* SDBaseProgressView.m */,
+				B9478D981D0FD9EA007AAAC1 /* SDLoopProgressView.h */,
+				B9478D991D0FD9EA007AAAC1 /* SDLoopProgressView.m */,
+				B9478D9A1D0FD9EA007AAAC1 /* SDPieLoopProgressView.h */,
+				B9478D9B1D0FD9EA007AAAC1 /* SDPieLoopProgressView.m */,
+				B9478D9C1D0FD9EA007AAAC1 /* SDPieProgressView.h */,
+				B9478D9D1D0FD9EA007AAAC1 /* SDPieProgressView.m */,
+				B9478D9E1D0FD9EA007AAAC1 /* SDProgressView.h */,
+				B9478D9F1D0FD9EA007AAAC1 /* SDRotationLoopProgressView.h */,
+				B9478DA01D0FD9EA007AAAC1 /* SDRotationLoopProgressView.m */,
+				B9478DA11D0FD9EA007AAAC1 /* SDTransparentPieProgressView.h */,
+				B9478DA21D0FD9EA007AAAC1 /* SDTransparentPieProgressView.m */,
+			);
+			path = SDProgressView;
+			sourceTree = "<group>";
+		};
+		B9478DAA1D0FDE5D007AAAC1 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B9478DAB1D0FDE70007AAAC1 /* Member.h */,
+				B9478DAC1D0FDE70007AAAC1 /* Member.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		B9478DAF1D0FEFA7007AAAC1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B9478DB01D0FEFA7007AAAC1 /* MessageBox */,
+				B9478DB41D0FEFA7007AAAC1 /* My */,
+				B9478DB81D0FEFA7007AAAC1 /* Neighbour */,
+				B9478DBC1D0FEFA7007AAAC1 /* Search */,
+				B9478DC01D0FEFA7007AAAC1 /* YuanFen */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B9478DB01D0FEFA7007AAAC1 /* MessageBox */ = {
+			isa = PBXGroup;
+			children = (
+				B9478DB11D0FEFA7007AAAC1 /* MessageBox.storyboard */,
+				B9478DB21D0FEFA7007AAAC1 /* MessageBoxViewController.h */,
+				B9478DB31D0FEFA7007AAAC1 /* MessageBoxViewController.m */,
+			);
+			path = MessageBox;
+			sourceTree = "<group>";
+		};
+		B9478DB41D0FEFA7007AAAC1 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				B9478DB51D0FEFA7007AAAC1 /* My.storyboard */,
+				B9478DB61D0FEFA7007AAAC1 /* MyViewController.h */,
+				B9478DB71D0FEFA7007AAAC1 /* MyViewController.m */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		B9478DB81D0FEFA7007AAAC1 /* Neighbour */ = {
+			isa = PBXGroup;
+			children = (
+				B9478DB91D0FEFA7007AAAC1 /* Neighbour.storyboard */,
+				B9478DBA1D0FEFA7007AAAC1 /* NeighbourViewController.h */,
+				B9478DBB1D0FEFA7007AAAC1 /* NeighbourViewController.m */,
+			);
+			path = Neighbour;
+			sourceTree = "<group>";
+		};
+		B9478DBC1D0FEFA7007AAAC1 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B9478DBD1D0FEFA7007AAAC1 /* Search.storyboard */,
+				B9478DBE1D0FEFA7007AAAC1 /* SearchViewController.h */,
+				B9478DBF1D0FEFA7007AAAC1 /* SearchViewController.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B9478DC01D0FEFA7007AAAC1 /* YuanFen */ = {
+			isa = PBXGroup;
+			children = (
+				B9478DC11D0FEFA7007AAAC1 /* Controller */,
+				B9478DC71D0FEFA7007AAAC1 /* Model */,
+				B9478DC81D0FEFA7007AAAC1 /* View */,
+			);
+			path = YuanFen;
+			sourceTree = "<group>";
+		};
+		B9478DC11D0FEFA7007AAAC1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9478DC21D0FEFA7007AAAC1 /* GirlDetailViewController.h */,
+				B9478DC31D0FEFA7007AAAC1 /* GirlDetailViewController.m */,
+				B9478DC41D0FEFA7007AAAC1 /* YuanFen.storyboard */,
+				B9478DC51D0FEFA7007AAAC1 /* YuanFenViewController.h */,
+				B9478DC61D0FEFA7007AAAC1 /* YuanFenViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9478DC71D0FEFA7007AAAC1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9478DC81D0FEFA7007AAAC1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B9478DC91D0FEFA7007AAAC1 /* FullSizeImage */,
+				B9478DCC1D0FEFA7007AAAC1 /* GDCustomCell.h */,
+				B9478DCD1D0FEFA7007AAAC1 /* GDCustomCell.m */,
+				B9478DCE1D0FEFA7007AAAC1 /* GDCustomCell.xib */,
+				B9478DCF1D0FEFA7007AAAC1 /* JLPhoto.h */,
+				B9478DD01D0FEFA7007AAAC1 /* JLPhoto.m */,
+				B9478DD11D0FEFA7007AAAC1 /* JLPhotoBrowser.h */,
+				B9478DD21D0FEFA7007AAAC1 /* JLPhotoBrowser.m */,
+				B9478DD31D0FEFA7007AAAC1 /* YFCustomCell.h */,
+				B9478DD41D0FEFA7007AAAC1 /* YFCustomCell.m */,
+				B9478DD51D0FEFA7007AAAC1 /* YFCustomCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9478DC91D0FEFA7007AAAC1 /* FullSizeImage */ = {
+			isa = PBXGroup;
+			children = (
+				B9478DCA1D0FEFA7007AAAC1 /* FullSizeImagesControl.h */,
+				B9478DCB1D0FEFA7007AAAC1 /* FullSizeImagesControl.m */,
+			);
+			path = FullSizeImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,12 +362,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B90D76021CF6EDF700964D3D /* Build configuration list for PBXNativeTarget "YueAi" */;
 			buildPhases = (
-				F0DD2726352EF6E179C706A3 /* 📦 Check Pods Manifest.lock */,
+				F0DD2726352EF6E179C706A3 /* [CP] Check Pods Manifest.lock */,
 				B90D75E71CF6EDF600964D3D /* Sources */,
 				B90D75E81CF6EDF600964D3D /* Frameworks */,
 				B90D75E91CF6EDF600964D3D /* Resources */,
-				C7C4975F533CADEF9C785B69 /* 📦 Embed Pods Frameworks */,
-				E42E6BFE1A6E27527CEDBE99 /* 📦 Copy Pods Resources */,
+				C7C4975F533CADEF9C785B69 /* [CP] Embed Pods Frameworks */,
+				E42E6BFE1A6E27527CEDBE99 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -343,28 +417,28 @@
 			files = (
 				B90D75FE1CF6EDF700964D3D /* LaunchScreen.storyboard in Resources */,
 				B90D75FB1CF6EDF700964D3D /* Assets.xcassets in Resources */,
-				B944B4D91CF8525E006B6D93 /* YFCustomCell.xib in Resources */,
-				B90D76161CF6EF7E00964D3D /* MessageBox.storyboard in Resources */,
+				B9478DD61D0FEFA7007AAAC1 /* MessageBox.storyboard in Resources */,
+				B9478DD81D0FEFA7007AAAC1 /* My.storyboard in Resources */,
+				B9478DDC1D0FEFA7007AAAC1 /* Search.storyboard in Resources */,
+				B9478DE71D0FEFA7007AAAC1 /* YFCustomCell.xib in Resources */,
+				B9478DE31D0FEFA7007AAAC1 /* GDCustomCell.xib in Resources */,
+				B9478DDA1D0FEFA7007AAAC1 /* Neighbour.storyboard in Resources */,
 				B90D75F91CF6EDF700964D3D /* Main.storyboard in Resources */,
-				B92784091D01319F009715E5 /* GDCustomCell.xib in Resources */,
-				B90D76121CF6EF6300964D3D /* Neighbour.storyboard in Resources */,
-				B90D76101CF6EF5600964D3D /* Search.storyboard in Resources */,
-				B90D76141CF6EF6E00964D3D /* My.storyboard in Resources */,
-				B944B4D11CF84155006B6D93 /* YuanFen.storyboard in Resources */,
+				B9478DDF1D0FEFA7007AAAC1 /* YuanFen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C7C4975F533CADEF9C785B69 /* 📦 Embed Pods Frameworks */ = {
+		C7C4975F533CADEF9C785B69 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,14 +446,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YueAi/Pods-YueAi-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E42E6BFE1A6E27527CEDBE99 /* 📦 Copy Pods Resources */ = {
+		E42E6BFE1A6E27527CEDBE99 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,14 +461,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YueAi/Pods-YueAi-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F0DD2726352EF6E179C706A3 /* 📦 Check Pods Manifest.lock */ = {
+		F0DD2726352EF6E179C706A3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,22 +483,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B90D76071CF6EE6A00964D3D /* MainTabViewController.m in Sources */,
-				B944B4D71CF85246006B6D93 /* YFCustomCell.m in Sources */,
-				B9478D5E1D06C59B007AAAC1 /* ImageModel.m in Sources */,
-				B944B4CA1CF83C68006B6D93 /* BaseViewController.m in Sources */,
-				B92783C81CFC1CD8009715E5 /* GirlDetailViewController.m in Sources */,
+				B9478DA71D0FD9EA007AAAC1 /* SDPieProgressView.m in Sources */,
+				B9478D7A1D0FD7FD007AAAC1 /* MainTabViewController.m in Sources */,
+				B9478DD71D0FEFA7007AAAC1 /* MessageBoxViewController.m in Sources */,
+				B9478DE61D0FEFA7007AAAC1 /* YFCustomCell.m in Sources */,
+				B9478DDE1D0FEFA7007AAAC1 /* GirlDetailViewController.m in Sources */,
 				B90D75F31CF6EDF700964D3D /* AppDelegate.m in Sources */,
-				B90D761F1CF6EFC500964D3D /* NeighbourViewController.m in Sources */,
-				B92784161D057C22009715E5 /* FullSizeImagesControl.m in Sources */,
+				B9478DA91D0FD9EA007AAAC1 /* SDTransparentPieProgressView.m in Sources */,
+				B9478DDD1D0FEFA7007AAAC1 /* SearchViewController.m in Sources */,
+				B9478DA81D0FD9EA007AAAC1 /* SDRotationLoopProgressView.m in Sources */,
+				B9478DDB1D0FEFA7007AAAC1 /* NeighbourViewController.m in Sources */,
+				B9478DE51D0FEFA7007AAAC1 /* JLPhotoBrowser.m in Sources */,
+				B9478D791D0FD7FD007AAAC1 /* BaseViewController.m in Sources */,
+				B9478DA41D0FD9EA007AAAC1 /* SDBaseProgressView.m in Sources */,
+				B9478DE11D0FEFA7007AAAC1 /* FullSizeImagesControl.m in Sources */,
+				B9478DA61D0FD9EA007AAAC1 /* SDPieLoopProgressView.m in Sources */,
+				B9478DD91D0FEFA7007AAAC1 /* MyViewController.m in Sources */,
 				B927840C1D01787B009715E5 /* BaseNavigationController.m in Sources */,
-				B90D76191CF6EFA700964D3D /* MessageBoxViewController.m in Sources */,
+				B9478DA31D0FD9EA007AAAC1 /* SDBallProgressView.m in Sources */,
+				B9478DE41D0FEFA7007AAAC1 /* JLPhoto.m in Sources */,
 				B90D75F01CF6EDF700964D3D /* main.m in Sources */,
-				B90D761C1CF6EFB600964D3D /* MyViewController.m in Sources */,
-				B944B4D21CF84155006B6D93 /* YuanFenViewController.m in Sources */,
-				B90D76221CF6EFD400964D3D /* SearchViewController.m in Sources */,
-				B92784071D013189009715E5 /* GDCustomCell.m in Sources */,
-				B927840F1D051116009715E5 /* HJAvatarBrowser.m in Sources */,
+				B9478DAD1D0FDE70007AAAC1 /* Member.m in Sources */,
+				B9478DA51D0FD9EA007AAAC1 /* SDLoopProgressView.m in Sources */,
+				B9478DE01D0FEFA7007AAAC1 /* YuanFenViewController.m in Sources */,
+				B9478DE21D0FEFA7007AAAC1 /* GDCustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
