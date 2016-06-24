@@ -1,21 +1,21 @@
 //
-//  NeighbourViewController.m
+//  SearchViewController.m
 //  YueAi
 //
 //  Created by 郭洪军 on 5/26/16.
 //  Copyright © 2016 郭洪军. All rights reserved.
 //
 
-#import "NeighbourViewController.h"
+#import "SearchViewController.h"
 #import "GirlCell.h"
 
-@interface NeighbourViewController ()
+@interface SearchViewController ()
 
 @property (strong, nonatomic) UITableView* tableView;
 
 @end
 
-@implementation NeighbourViewController
+@implementation SearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,7 +52,7 @@
     GirlCell* cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
     
     if (!cell) {
-        cell = [[GirlCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId type:2];
+        cell = [[GirlCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId type:1];
     }
     
     return cell;

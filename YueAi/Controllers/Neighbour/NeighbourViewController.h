@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NeighbourViewController : BaseViewController
+@interface NeighbourViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end

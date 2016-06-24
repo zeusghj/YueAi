@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GirlDetailModel.h"
 
 @interface GirlDetailViewController : UIViewController
+
+@property(strong, nonatomic)GirlDetailModel* model;
 
 @end

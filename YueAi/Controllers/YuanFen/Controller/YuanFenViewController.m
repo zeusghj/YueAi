@@ -126,8 +126,18 @@
     [temporaryBarButtonItem setBackButtonBackgroundImage:[image resizableImageWithCapInsets:UIEdgeInsetsMake(0, image.size.width, 0, 0)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [temporaryBarButtonItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-400.f, 0) forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
-    
     gdController.hidesBottomBarWhenPushed = YES;
+    
+    GirlDetailModel* model = [[GirlDetailModel alloc]init];
+    model.name = @"会飞的小蝌蚪";
+    model.medals = @[@"doubi", @"vip", @"star", @"mail"];
+    model.introUrl = @"";
+    model.time = 3;
+    model.ziliao = @"她在北京，18岁，163cm，80斤。";
+    model.detail = @"家乡四川，高中及中专学历，收入5000-10000元，未婚，会考虑异地恋，喜欢温柔体贴的异性，会考虑接受亲密行为，想要小孩。她的魅力部位是笑容。";
+    model.tags = @[@"上网", @"看电影", @"旅游", @"温柔", @"孝顺", @"温s柔", @"孝s顺"];
+    model.condition = @"她想和异性聊天。";
+    gdController.model = model;
     
     [self.navigationController pushViewController:gdController animated:YES];
 }

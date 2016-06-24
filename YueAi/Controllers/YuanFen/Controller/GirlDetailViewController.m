@@ -12,6 +12,7 @@
 #import "JLPhoto.h"
 #import "JLPhotoBrowser.h"
 #import "Member.h"
+#import "GirlDetailCell.h"
 
 @interface GirlDetailViewController ()<UITableViewDelegate, UITableViewDataSource,
                                        UICollectionViewDelegate, UICollectionViewDataSource,
@@ -19,13 +20,13 @@
 
 @property (weak, nonatomic) UITableView* tableView;
 @property (strong, nonatomic) UICollectionView* collectionView;
+@property (assign, nonatomic) BOOL isShowDetail;
 
 @end
 
 @implementation GirlDetailViewController
 {
     UIImageView* _iconHiImageView;
-//    BOOL         _isShowImage;
     CGRect frame_first;
 }
 
@@ -91,6 +92,7 @@
         _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, -(100+365)*height_scale, SCREEN_WIDTH, SCREEN_HEIGHT) collectionViewLayout:flowLayout];
         _collectionView.bounces = NO;
         _collectionView.pagingEnabled = YES;
+        _collectionView.clipsToBounds = NO;
         
         //定义每个UICollectionView 的大小
         flowLayout.itemSize = _collectionView.bounds.size;
@@ -135,9 +137,9 @@
        
         _tableView = tempTableView;
         _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_tableView setContentInset:UIEdgeInsetsMake(365*height_scale, 0, 0, 0)];
         [_tableView setContentOffset:CGPointMake(0, -365*height_scale)];
-//        NSLog(@"tableView.frame = %@", NSStringFromCGRect(_tableView.frame));
     }
     
     return _tableView ;
@@ -189,47 +191,47 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-#pragma mark - UITableViewDelegate
-//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 150.f ;
-//}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - Methods
+-(void)setModel:(GirlDetailModel *)model
 {
-    return 150.f;
+    _model = model;
 }
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 150.f ;
+}
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 60.f;
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"点击了第 %ld 组， 第 %ld 行", indexPath.section, indexPath.row) ;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (0 == section) {
-        return 0 ;
-    }else
-    {
-        return 44.f;
-    }
-}
-
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4 ;
+    return 7 ;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString* reuseIdentifier = @"reuseCell" ;
+
+    GirlDetailCell* cell = [[GirlDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier cellType:indexPath.row + 1 model:_model showDetail:self.isShowDetail] ;
     
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier] ;
+    __weak typeof(self)weakSelf = self;
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier] ;
-        
+    if (indexPath.row == 3) {
+        cell.showDetail = ^(){
+            weakSelf.isShowDetail = YES;
+            [weakSelf.tableView reloadData];
+        };
     }
     
     return cell ;
@@ -303,8 +305,6 @@
         
         CGFloat offsetY = scrollView.contentOffset.y;
         
-//        NSLog(@"offsetY = %lf", offsetY) ;
-        
         if (offsetY > -365.f*height_scale) {
             self.collectionView.frame = CGRectMake(0, -100*height_scale + offsetY  , SCREEN_WIDTH, SCREEN_HEIGHT);
             
@@ -333,7 +333,8 @@
             
         }else
         {
-            self.collectionView.frame = CGRectMake(0, -(100+365)*height_scale  , SCREEN_WIDTH, SCREEN_HEIGHT);
+//            self.collectionView.frame = CGRectMake(0, -(100+365)*height_scale  , SCREEN_WIDTH, SCREEN_HEIGHT);
+            
         }
         
     }
