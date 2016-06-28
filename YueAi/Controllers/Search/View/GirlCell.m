@@ -115,50 +115,6 @@
             make.centerY.equalTo(self.contentView);
         }];
         
-        NSArray* tags = @[@"上网", @"养小动物"];
-        CGSize maxSize = CGSizeMake(SCREEN_WIDTH - 12 - 70 - 10 - 80, 20);
-        
-        NSMutableArray* sizeArr = [NSMutableArray new];
-        for (int i=0; i<tags.count; ++i) {
-            NSString* text = tags[i];
-            
-            CGSize titleSize = [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]} context:nil].size;
-            [sizeArr addObject:[NSValue valueWithCGSize:titleSize]];
-        }
-        
-        UILabel* lastLabel = nil;
-        for (int i = 0; i<tags.count; ++i) {
-            NSString* text = tags[i];
-            
-            CGSize titleSize = [sizeArr[i] CGSizeValue];
-            CGFloat titleWidth = titleSize.width + 10;
-            
-            UILabel* label = [[UILabel alloc] init];
-            label.text = text;
-            label.textAlignment = NSTextAlignmentCenter;
-            label.textColor = [UIColor lightGrayColor];
-            label.font = [UIFont systemFontOfSize:10.f];
-            label.layer.cornerRadius = 8.f;
-            label.layer.borderWidth = 0.5;
-            label.layer.borderColor = [UIColor lightGrayColor].CGColor;
-            label.layer.masksToBounds = YES;
-            [self.contentView addSubview:label];
-            
-            [label mas_makeConstraints:^(MASConstraintMaker *make) {
-                if (lastLabel == nil) {
-                    make.left.equalTo(_nameLabel);
-                    make.size.mas_equalTo(CGSizeMake(titleWidth, titleSize.height +4));
-                    make.top.equalTo(_heightLabel.mas_bottom).offset(5);
-                }else
-                {
-                    make.left.equalTo(lastLabel.mas_right).offset(10);
-                    make.size.mas_equalTo(CGSizeMake(titleWidth, titleSize.height +4));
-                    make.top.equalTo(lastLabel);
-                }
-            }];
-            
-            lastLabel = label;
-        }
     }
     
     return self;
@@ -168,13 +124,70 @@
 {
     _model = model;
     
-    _iconImageView.image = [UIImage imageNamed:_model.iconUrl];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:_model.iconUrl]];
     _nameLabel.text     = _model.name;
     _ageLabel.text      = _model.age;
     _addressLabel.text  = _model.address;
     _heightLabel.text   = _model.height;
     _incomeLabel.text   = _model.income;
     _distanceLabel.text = _model.distance;
+    
+    NSArray* tags = _model.tags;
+    CGSize maxSize = CGSizeMake(SCREEN_WIDTH - 12 - 70 - 10 - 80, 20);
+    
+    NSMutableArray* sizeArr = [NSMutableArray new];
+    for (int i=0; i<tags.count; ++i) {
+        NSString* text = tags[i];
+        
+        CGSize titleSize = [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]} context:nil].size;
+        [sizeArr addObject:[NSValue valueWithCGSize:titleSize]];
+    }
+    
+    for (UIView* view in self.contentView.subviews) {
+        if (view.tag == 51) {
+            [view removeFromSuperview];
+        }
+    }
+    
+    UILabel* lastLabel = nil;
+    for (int i = 0; i<tags.count; ++i) {
+        
+        if (i>4) {   //标签多余5个有可能超出屏幕了
+            return;
+        }
+        
+        NSString* text = tags[i];
+        
+        CGSize titleSize = [sizeArr[i] CGSizeValue];
+        CGFloat titleWidth = titleSize.width + 10;
+        
+        UILabel* label = [[UILabel alloc] init];
+        label.text = text;
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = [UIColor lightGrayColor];
+        label.font = [UIFont systemFontOfSize:10.f];
+        label.layer.cornerRadius = 8.f;
+        label.layer.borderWidth = 0.5;
+        label.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        label.layer.masksToBounds = YES;
+        label.tag = 51;
+        [self.contentView addSubview:label];
+        
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            if (lastLabel == nil) {
+                make.left.equalTo(_nameLabel);
+                make.size.mas_equalTo(CGSizeMake(titleWidth, titleSize.height +4));
+                make.top.equalTo(_heightLabel.mas_bottom).offset(5);
+            }else
+            {
+                make.left.equalTo(lastLabel.mas_right).offset(10);
+                make.size.mas_equalTo(CGSizeMake(titleWidth, titleSize.height +4));
+                make.top.equalTo(lastLabel);
+            }
+        }];
+        
+        lastLabel = label;
+    }
     
 }
 

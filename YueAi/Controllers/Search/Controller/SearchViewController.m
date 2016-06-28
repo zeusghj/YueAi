@@ -8,19 +8,85 @@
 
 #import "SearchViewController.h"
 #import "GirlCell.h"
+#import "GirlModel.h"
+#import "MJRefresh.h"
+#import "WKProgressHUD.h"
 
 @interface SearchViewController ()
 
 @property (strong, nonatomic) UITableView* tableView;
+@property (strong, nonatomic) NSMutableArray* users;
 
 @end
 
 @implementation SearchViewController
+{
+    WKProgressHUD* _hud;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self setUpTableView];
+    
+    [self setupRefresh];
+    
+}
+
+- (NSMutableArray *)users
+{
+    if (!_users) {
+        _users = [NSMutableArray new];
+    }
+    
+    return _users;
+}
+
+- (void)setupRefresh
+{
+    // 下拉刷新
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        //进行登录操作
+        if (!_hud) {
+            _hud = [WKProgressHUD showInView:self.view withText:@"加载中" animated:YES];
+        }
+        
+        NSURL *URL = [NSURL URLWithString:@"http://192.168.1.40:5000/user"];
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+            
+            NSArray* arr = responseObject;
+            for (int i=0; i<arr.count; ++i) {
+                NSDictionary* dict = arr[i];
+                GirlModel* model = [GirlModel new];
+                model.iconUrl = dict[@"url"];
+                model.name = dict[@"nickame"];
+                model.age = @"18岁";
+                model.address = dict[@"address"];
+                model.height = dict[@"height"];
+                model.income = dict[@"xinzi"];
+                model.tags = dict[@"tags"];
+                
+                [self.users addObject:model];
+                
+                [self.tableView reloadData];
+            }
+            
+            NSLog(@"FlyElephant-JSON: %@", arr);
+            
+            [self.tableView.header endRefreshing];
+            [_hud dismiss:YES];
+        } failure:^(NSURLSessionTask *operation, NSError *error) {
+            NSLog(@"FlyElephant-Error: %@", error);
+            
+            [self.tableView.header endRefreshing];
+            [_hud dismiss:YES];
+        }];
+        
+    }];
+    
+    [self.tableView.header beginRefreshing];
 }
 
 - (void)setUpTableView
@@ -42,7 +108,7 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [self.users count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -54,6 +120,10 @@
     if (!cell) {
         cell = [[GirlCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId type:1];
     }
+    
+    GirlModel* model = self.users[indexPath.row];
+    
+    cell.model = model;
     
     return cell;
 }
