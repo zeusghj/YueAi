@@ -12,5 +12,6 @@
 @interface GirlDetailViewController : UIViewController
 
 @property(strong, nonatomic)GirlDetailModel* model;
+@property(copy, nonatomic) NSString* uid;
 
 @end

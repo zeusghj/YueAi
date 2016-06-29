@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@interface YFCustomCellModel : NSObject
+
+@property (copy, nonatomic) NSString* uid;
+@property (copy, nonatomic) NSString* iconUrl;
+
+@end
+
 @interface YFCustomCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) YFCustomCellModel* model;
 
 @end
+
+

@@ -13,6 +13,7 @@
 #import "JLPhotoBrowser.h"
 #import "Member.h"
 #import "GirlDetailCell.h"
+#import "WKProgressHUD.h"
 
 @interface GirlDetailViewController ()<UITableViewDelegate, UITableViewDataSource,
                                        UICollectionViewDelegate, UICollectionViewDataSource,
@@ -28,6 +29,9 @@
 {
     UIImageView* _iconHiImageView;
     CGRect frame_first;
+    
+    WKProgressHUD* _hud;
+    
 }
 
 - (void)dealloc
@@ -61,6 +65,8 @@
     [self.tableView reloadData] ;
     
     [self setTabBar] ;
+    
+    [self getUserDetails];
 }
 
 - (void)setNaviBar
@@ -118,6 +124,59 @@
         
     }
     return _collectionView;
+}
+
+- (void)getUserDetails
+{
+    if (!_hud) {
+        _hud = [WKProgressHUD showInView:self.view withText:@"加载中" animated:YES];
+    }
+    
+    NSString* requestUrl = [NSString stringWithFormat:@"http://192.168.1.40:5000/user/%@", self.uid];
+    NSURL *URL = [NSURL URLWithString:requestUrl];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSDictionary* dict = responseObject;
+        
+        NSLog(@"userDetail = %@", responseObject);
+        GirlDetailModel* model = [[GirlDetailModel alloc]init];
+        model.name = dict[@"nickame"];
+        model.medals = @[@"doubi", @"vip", @"star", @"mail"];
+        model.introUrl = @"";
+        model.time = 3;
+        NSString* ziliao = [NSString stringWithFormat:@"她在%@, %@, %@, %@", dict[@"address"], dict[@"age"],dict[@"height"],dict[@"weight"]];
+        model.ziliao = ziliao ;
+        NSString* detail = [NSString stringWithFormat:@"家乡%@, %@学历，收入%@，%@，%@异地恋，%@接受亲密行为，%@小孩，她的魅力部位是%@",dict[@"jiguan"], dict[@"xueli"], dict[@"xinzi"], dict[@"marriage"], dict[@"yidiLove"], dict[@"foreSex"], dict[@"getBaby"], dict[@"meili"]];
+        model.detail = detail;
+        model.tags = dict[@"tags"];
+        NSString* condition = [NSString stringWithFormat:@"年龄:%@\n城市:%@\n身高:%@\n收入:%@\n学历:%@",dict[@"op_age"], dict[@"op_city"], dict[@"op_height"], dict[@"op_income"], dict[@"op_xueli"]];
+        model.dubai = dict[@"dubai"];
+        model.condition = condition;
+        model.iconUrl = dict[@"url"];
+        
+        NSArray* smallPics = dict[@"smallPhotos"];
+        if (smallPics.count == 0) {
+            smallPics = [NSArray arrayWithObject:dict[@"url"]];
+        }
+        
+        model.pics = smallPics;
+        
+        self.model = model;
+        
+        [self.tableView reloadData];
+        [self.collectionView reloadData];
+        
+        BaseNavigationController* bnvc = (BaseNavigationController *)(self.navigationController);
+        [bnvc.avatarImageView sd_setImageWithURL:[NSURL URLWithString:model.iconUrl]];
+        
+        [_hud dismiss:YES];
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"FlyElephant-Error: %@", error);
+        
+        [_hud dismiss:YES];
+    }];
 }
 
 - (UITableView *)tableView
@@ -203,11 +262,6 @@
     return 150.f ;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 60.f;
-//}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"点击了第 %ld 组， 第 %ld 行", indexPath.section, indexPath.row) ;
@@ -248,7 +302,7 @@
 #pragma mark 定义展示的UICollectionViewCell的个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 2;
+    return self.model.pics.count;
 }
 
 #pragma mark 每个UICollectionView展示的内容
@@ -257,7 +311,8 @@
     static NSString *identify = @"gdcellid";
     GDCustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"meinv%ld",indexPath.item + 1]] ;
+//    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"meinv%ld",indexPath.item + 1]] ;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.model.pics[indexPath.item]]];
     [cell sizeToFit];
     
     return cell;
@@ -268,16 +323,16 @@
 {
     NSMutableArray *photos = [NSMutableArray array];
     
-    Member* member = [[Member alloc] init];
+//    Member* member = [[Member alloc] init];
     
-    for (int i=0; i<member.bigImgUrls.count; i++) {
+    for (int i=0; i<self.model.pics.count; i++) {
         
         NSIndexPath* ipath = [NSIndexPath indexPathForItem:i inSection:0];
         GDCustomCell *tempCell = (GDCustomCell *)[self collectionView:collectionView cellForItemAtIndexPath:ipath];
         UIImageView *child = tempCell.imageView;
         JLPhoto *photo = [[JLPhoto alloc] init];
         photo.sourceImageView = child;
-        photo.bigImgUrl = member.bigImgUrls[i];
+        photo.bigImgUrl = self.model.pics[i];
         photo.originFrame = CGRectMake(0, 0, SCREEN_WIDTH, 384.f*height_scale);
         photo.tag = i;
         [photos addObject:photo];

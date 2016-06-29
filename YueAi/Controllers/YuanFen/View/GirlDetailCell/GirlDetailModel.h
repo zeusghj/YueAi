@@ -14,10 +14,13 @@
 @property(strong, nonatomic) NSArray* medals;   //勋章
 @property(copy, nonatomic) NSString* introUrl;  //音频文件名字/地址
 @property(assign, nonatomic) NSInteger time;    //音频时长
+@property(copy, nonatomic) NSString* dubai;     //个人独白
 @property(copy, nonatomic) NSString* ziliao;    //基本资料
 @property(copy, nonatomic) NSString* detail;    //详细资料
 @property(strong, nonatomic) NSArray* tags;     //标签
 @property(copy, nonatomic) NSString* condition; //征友条件
+@property(strong, nonatomic) NSArray* pics;     //图片
+@property(copy, nonatomic) NSString* iconUrl;   //icon图片地址
 
 
 @end

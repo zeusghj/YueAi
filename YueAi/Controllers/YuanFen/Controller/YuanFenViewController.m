@@ -9,14 +9,29 @@
 #import "YuanFenViewController.h"
 #import "GirlDetailViewController.h"
 #import "YFCustomCell.h"
+#import "MJRefresh.h"
+#import "WKProgressHUD.h"
 
 @interface YuanFenViewController ()
 
 @property(weak, nonatomic)UICollectionView* collectionView;
+@property(strong, nonatomic)NSMutableArray* users;
 
 @end
 
 @implementation YuanFenViewController
+{
+    WKProgressHUD* _hud;
+}
+
+- (NSMutableArray *)users
+{
+    if (!_users) {
+        _users = [NSMutableArray new];
+    }
+    
+    return _users;
+}
 
 - (UICollectionView *)collectionView
 {
@@ -73,12 +88,93 @@
     [super viewDidLoad];
         
     [self collectionView];
+    
+    [self setupRefresh];
+}
+
+- (void)setupRefresh
+{
+    // 下拉刷新
+    self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        if (!_hud) {
+            _hud = [WKProgressHUD showInView:self.view withText:@"加载中" animated:YES];
+        }
+        
+        NSURL *URL = [NSURL URLWithString:@"http://192.168.1.40:5000/homepage/?limit=16"];
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+            
+            if (self.users.count != 0) {
+                [_users removeAllObjects];
+            }
+            NSArray* arr = responseObject;
+            
+            for (int i=0; i<arr.count; ++i) {
+                NSDictionary* dict = arr[i];
+                YFCustomCellModel* model = [YFCustomCellModel new];
+                model.uid = dict[@"uid"];
+                model.iconUrl = dict[@"url"];
+                
+                [self.users addObject:model];
+            }
+            
+            [self.collectionView reloadData];
+            
+            [self.collectionView.header endRefreshing];
+            [_hud dismiss:YES];
+        } failure:^(NSURLSessionTask *operation, NSError *error) {
+            NSLog(@"FlyElephant-Error: %@", error);
+            
+            [self.collectionView.header endRefreshing];
+            [_hud dismiss:YES];
+        }];
+        
+    }];
+    
+    //上拉刷新
+    self.collectionView.footer = [MJRefreshBackStateFooter footerWithRefreshingBlock:^{
+        if (!_hud) {
+            _hud = [WKProgressHUD showInView:self.view withText:@"加载中" animated:YES];
+        }
+        
+        NSString* requestUrl = [NSString stringWithFormat:@"http://192.168.1.40:5000/homepage/?limit=16&offset=%lu", (unsigned long)self.users.count];
+        NSURL *URL = [NSURL URLWithString:requestUrl];
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+            
+            NSArray* arr = responseObject;
+            
+            for (int i=0; i<arr.count; ++i) {
+                NSDictionary* dict = arr[i];
+                YFCustomCellModel* model = [YFCustomCellModel new];
+                model.uid = dict[@"uid"];
+                model.iconUrl = dict[@"url"];
+                
+                [self.users addObject:model];
+            }
+            
+            [self.collectionView reloadData];
+            
+            [self.collectionView.footer endRefreshing];
+            [_hud dismiss:YES];
+        } failure:^(NSURLSessionTask *operation, NSError *error) {
+            NSLog(@"FlyElephant-Error: %@", error);
+            
+            [self.collectionView.footer endRefreshing];
+            [_hud dismiss:YES];
+        }];
+    }];
+    
+    [self.collectionView.header beginRefreshing];
 }
 
 #pragma mark 定义展示的UICollectionViewCell的个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 30;
+    return self.users.count;
 }
 
 #pragma mark 定义展示的Section的个数
@@ -92,7 +188,7 @@
 {
     static NSString *identify = @"cellnib";
     YFCustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"girl_%ld",indexPath.item]] ;
+    cell.model = self.users[indexPath.item] ;
     [cell sizeToFit];
     
     return cell;
@@ -128,16 +224,7 @@
     self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
     gdController.hidesBottomBarWhenPushed = YES;
     
-    GirlDetailModel* model = [[GirlDetailModel alloc]init];
-    model.name = @"会飞的小蝌蚪";
-    model.medals = @[@"doubi", @"vip", @"star", @"mail"];
-    model.introUrl = @"";
-    model.time = 3;
-    model.ziliao = @"她在北京，18岁，163cm，80斤。";
-    model.detail = @"家乡四川，高中及中专学历，收入5000-10000元，未婚，会考虑异地恋，喜欢温柔体贴的异性，会考虑接受亲密行为，想要小孩。她的魅力部位是笑容。";
-    model.tags = @[@"上网", @"看电影", @"旅游", @"温柔", @"孝顺", @"温s柔", @"孝s顺"];
-    model.condition = @"她想和异性聊天。";
-    gdController.model = model;
+    gdController.uid = [self.users[indexPath.item] uid];    
     
     [self.navigationController pushViewController:gdController animated:YES];
 }

@@ -28,6 +28,7 @@
         _iconImageView.image = [UIImage imageNamed:@"girl_3"];
         _iconImageView.layer.cornerRadius = 35.f;
         _iconImageView.layer.masksToBounds = YES;
+        _iconImageView.contentMode = UIViewContentModeScaleAspectFill;
         [_iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView).offset(12);
             make.centerY.equalTo(self.contentView);

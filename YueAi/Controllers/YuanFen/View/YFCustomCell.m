@@ -10,4 +10,20 @@
 
 @implementation YFCustomCell
 
+- (void)awakeFromNib {
+    _imageView.contentMode = UIViewContentModeScaleAspectFill;
+    _imageView.layer.masksToBounds = YES;
+}
+
+- (void)setModel:(YFCustomCellModel *)model
+{
+    _model = model;
+    
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:_model.iconUrl]];
+}
+
+@end
+
+@implementation YFCustomCellModel
+
 @end

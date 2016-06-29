@@ -32,8 +32,7 @@
     [_avatarBackView addSubview:_avatarKuang];
     
     _avatarImageView = [[UIImageView alloc]initWithFrame:CGRectMake(28.f, 28.f, 74.f, 74.f)];
-//    _avatarImageView.backgroundColor = [UIColor grayColor];
-    _avatarImageView.image = [UIImage imageNamed:@"meinv1_icon"];
+//    _avatarImageView.image = [UIImage imageNamed:@"meinv1_icon"];
     [_avatarImageView.layer setCornerRadius:CGRectGetHeight([_avatarImageView bounds]) / 2];
     _avatarImageView.layer.masksToBounds = YES;
     [_avatarKuang addSubview:_avatarImageView];

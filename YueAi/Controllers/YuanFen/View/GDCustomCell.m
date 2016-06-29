@@ -10,4 +10,10 @@
 
 @implementation GDCustomCell
 
+- (void)awakeFromNib
+{
+    [_imageView setContentMode:UIViewContentModeScaleAspectFill];
+    _imageView.layer.masksToBounds = YES;
+}
+
 @end

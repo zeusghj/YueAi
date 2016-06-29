@@ -142,9 +142,7 @@
         {
             [_iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.contentView).offset(ICON_LEFT_MARGIN);
-                //                make.centerY.equalTo(self.contentView);
                 make.top.equalTo(self.contentView).offset(10);
-                make.bottom.equalTo(self.contentView).offset(-10);
                 make.width.equalTo(@17);
             }];
             
@@ -156,6 +154,17 @@
             [_typeNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(_iconImageView.mas_right).offset(TITLE_LEFT_MARGIN);
                 make.centerY.equalTo(_iconImageView);
+            }];
+            
+            UILabel* dubaiLabel = [[UILabel alloc] init];
+            dubaiLabel.numberOfLines = 0;
+            dubaiLabel.text = _model.dubai;
+            [self.contentView addSubview:dubaiLabel];
+            [dubaiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(_typeNameLabel.mas_left).offset(85);
+                make.right.equalTo(self.contentView).offset(-10);
+                make.top.equalTo(_typeNameLabel);
+                make.bottom.equalTo(self.contentView).offset(-5);
             }];
             
             _iconImageView.image = [UIImage imageNamed:@"otherspace_fresh"];
@@ -310,9 +319,7 @@
                     item += 1;
                 }
             }
-            
-            
-            
+                        
             _iconImageView.image = [UIImage imageNamed:@"otherspace_tag_icon"];
         }else if (_cellType == 6)
         {

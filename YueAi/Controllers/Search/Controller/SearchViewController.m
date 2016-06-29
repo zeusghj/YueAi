@@ -51,7 +51,53 @@
             _hud = [WKProgressHUD showInView:self.view withText:@"加载中" animated:YES];
         }
         
-        NSURL *URL = [NSURL URLWithString:@"http://192.168.1.40:5000/user"];
+        NSURL *URL = [NSURL URLWithString:@"http://192.168.1.40:5000/user/?limit=16"];
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+            
+            if (self.users.count != 0) {
+                [_users removeAllObjects];
+            }
+            
+            NSArray* arr = responseObject;
+            for (int i=0; i<arr.count; ++i) {
+                NSDictionary* dict = arr[i];
+                GirlModel* model = [GirlModel new];
+                model.iconUrl = dict[@"url"];
+                model.name = dict[@"nickame"];
+                model.age = @"18岁";
+                model.address = dict[@"address"];
+                model.height = dict[@"height"];
+                model.income = dict[@"xinzi"];
+                model.tags = dict[@"tags"];
+                
+                [self.users addObject:model];                
+            }
+            
+            [self.tableView reloadData];
+            
+            NSLog(@"FlyElephant-JSON: %@", arr);
+            
+            [self.tableView.header endRefreshing];
+            [_hud dismiss:YES];
+        } failure:^(NSURLSessionTask *operation, NSError *error) {
+            NSLog(@"FlyElephant-Error: %@", error);
+            
+            [self.tableView.header endRefreshing];
+            [_hud dismiss:YES];
+        }];
+        
+    }];
+    
+    //上拉刷新
+    self.tableView.footer = [MJRefreshBackStateFooter footerWithRefreshingBlock:^{
+        if (!_hud) {
+            _hud = [WKProgressHUD showInView:self.view withText:@"加载中" animated:YES];
+        }
+        
+        NSString* requestUrl = [NSString stringWithFormat:@"http://192.168.1.40:5000/user/?limit=16&offset=%lu", (unsigned long)self.users.count];
+        NSURL *URL = [NSURL URLWithString:requestUrl];
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
         [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
@@ -69,21 +115,18 @@
                 model.tags = dict[@"tags"];
                 
                 [self.users addObject:model];
-                
-                [self.tableView reloadData];
             }
             
-            NSLog(@"FlyElephant-JSON: %@", arr);
+            [self.tableView reloadData];
             
-            [self.tableView.header endRefreshing];
+            [self.tableView.footer endRefreshing];
             [_hud dismiss:YES];
         } failure:^(NSURLSessionTask *operation, NSError *error) {
             NSLog(@"FlyElephant-Error: %@", error);
             
-            [self.tableView.header endRefreshing];
+            [self.tableView.footer endRefreshing];
             [_hud dismiss:YES];
         }];
-        
     }];
     
     [self.tableView.header beginRefreshing];
