@@ -29,12 +29,8 @@
 		B9478DA81D0FD9EA007AAAC1 /* SDRotationLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DA01D0FD9EA007AAAC1 /* SDRotationLoopProgressView.m */; };
 		B9478DA91D0FD9EA007AAAC1 /* SDTransparentPieProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DA21D0FD9EA007AAAC1 /* SDTransparentPieProgressView.m */; };
 		B9478DAD1D0FDE70007AAAC1 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DAC1D0FDE70007AAAC1 /* Member.m */; };
-		B9478DD61D0FEFA7007AAAC1 /* MessageBox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9478DB11D0FEFA7007AAAC1 /* MessageBox.storyboard */; };
-		B9478DD71D0FEFA7007AAAC1 /* MessageBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DB31D0FEFA7007AAAC1 /* MessageBoxViewController.m */; };
 		B9478DD81D0FEFA7007AAAC1 /* My.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9478DB51D0FEFA7007AAAC1 /* My.storyboard */; };
 		B9478DD91D0FEFA7007AAAC1 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DB71D0FEFA7007AAAC1 /* MyViewController.m */; };
-		B9478DDA1D0FEFA7007AAAC1 /* Neighbour.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9478DB91D0FEFA7007AAAC1 /* Neighbour.storyboard */; };
-		B9478DDB1D0FEFA7007AAAC1 /* NeighbourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DBB1D0FEFA7007AAAC1 /* NeighbourViewController.m */; };
 		B9478DDE1D0FEFA7007AAAC1 /* GirlDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DC31D0FEFA7007AAAC1 /* GirlDetailViewController.m */; };
 		B9478DDF1D0FEFA7007AAAC1 /* YuanFen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9478DC41D0FEFA7007AAAC1 /* YuanFen.storyboard */; };
 		B9478DE01D0FEFA7007AAAC1 /* YuanFenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9478DC61D0FEFA7007AAAC1 /* YuanFenViewController.m */; };
@@ -67,6 +63,11 @@
 		B950E4AC1D22719500D2A11E /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B950E4971D22719500D2A11E /* UIScrollView+MJExtension.m */; };
 		B950E4AD1D22719500D2A11E /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B950E4991D22719500D2A11E /* UIScrollView+MJRefresh.m */; };
 		B950E4AE1D22719500D2A11E /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B950E49B1D22719500D2A11E /* UIView+MJExtension.m */; };
+		B972DB4B1D2B4B2E00341166 /* Neighbour.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B972DB461D2B4B2E00341166 /* Neighbour.storyboard */; };
+		B972DB4C1D2B4B2E00341166 /* NeighbourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B972DB481D2B4B2E00341166 /* NeighbourViewController.m */; };
+		B972DB531D2B539800341166 /* MessageBox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B972DB4E1D2B539800341166 /* MessageBox.storyboard */; };
+		B972DB541D2B539800341166 /* MessageBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B972DB501D2B539800341166 /* MessageBoxViewController.m */; };
+		B972DB571D2B540B00341166 /* HJModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B972DB561D2B540B00341166 /* HJModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,15 +114,9 @@
 		B9478DAB1D0FDE70007AAAC1 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
 		B9478DAC1D0FDE70007AAAC1 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		B9478DAE1D0FEF2A007AAAC1 /* CommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
-		B9478DB11D0FEFA7007AAAC1 /* MessageBox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageBox.storyboard; sourceTree = "<group>"; };
-		B9478DB21D0FEFA7007AAAC1 /* MessageBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBoxViewController.h; sourceTree = "<group>"; };
-		B9478DB31D0FEFA7007AAAC1 /* MessageBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBoxViewController.m; sourceTree = "<group>"; };
 		B9478DB51D0FEFA7007AAAC1 /* My.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = My.storyboard; sourceTree = "<group>"; };
 		B9478DB61D0FEFA7007AAAC1 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		B9478DB71D0FEFA7007AAAC1 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
-		B9478DB91D0FEFA7007AAAC1 /* Neighbour.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Neighbour.storyboard; sourceTree = "<group>"; };
-		B9478DBA1D0FEFA7007AAAC1 /* NeighbourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeighbourViewController.h; sourceTree = "<group>"; };
-		B9478DBB1D0FEFA7007AAAC1 /* NeighbourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeighbourViewController.m; sourceTree = "<group>"; };
 		B9478DC21D0FEFA7007AAAC1 /* GirlDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GirlDetailViewController.h; sourceTree = "<group>"; };
 		B9478DC31D0FEFA7007AAAC1 /* GirlDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GirlDetailViewController.m; sourceTree = "<group>"; };
 		B9478DC41D0FEFA7007AAAC1 /* YuanFen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YuanFen.storyboard; sourceTree = "<group>"; };
@@ -182,6 +177,14 @@
 		B950E4991D22719500D2A11E /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		B950E49A1D22719500D2A11E /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		B950E49B1D22719500D2A11E /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		B972DB461D2B4B2E00341166 /* Neighbour.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Neighbour.storyboard; sourceTree = "<group>"; };
+		B972DB471D2B4B2E00341166 /* NeighbourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeighbourViewController.h; sourceTree = "<group>"; };
+		B972DB481D2B4B2E00341166 /* NeighbourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeighbourViewController.m; sourceTree = "<group>"; };
+		B972DB4E1D2B539800341166 /* MessageBox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageBox.storyboard; sourceTree = "<group>"; };
+		B972DB4F1D2B539800341166 /* MessageBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBoxViewController.h; sourceTree = "<group>"; };
+		B972DB501D2B539800341166 /* MessageBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBoxViewController.m; sourceTree = "<group>"; };
+		B972DB551D2B540B00341166 /* HJModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJModel.h; sourceTree = "<group>"; };
+		B972DB561D2B540B00341166 /* HJModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJModel.m; sourceTree = "<group>"; };
 		D967A46A904722CEF7B04DA0 /* Pods-YueAi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YueAi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YueAi/Pods-YueAi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -369,9 +372,9 @@
 		B9478DB01D0FEFA7007AAAC1 /* MessageBox */ = {
 			isa = PBXGroup;
 			children = (
-				B9478DB11D0FEFA7007AAAC1 /* MessageBox.storyboard */,
-				B9478DB21D0FEFA7007AAAC1 /* MessageBoxViewController.h */,
-				B9478DB31D0FEFA7007AAAC1 /* MessageBoxViewController.m */,
+				B972DB4D1D2B539800341166 /* Controller */,
+				B972DB511D2B539800341166 /* Model */,
+				B972DB521D2B539800341166 /* View */,
 			);
 			path = MessageBox;
 			sourceTree = "<group>";
@@ -389,9 +392,9 @@
 		B9478DB81D0FEFA7007AAAC1 /* Neighbour */ = {
 			isa = PBXGroup;
 			children = (
-				B9478DB91D0FEFA7007AAAC1 /* Neighbour.storyboard */,
-				B9478DBA1D0FEFA7007AAAC1 /* NeighbourViewController.h */,
-				B9478DBB1D0FEFA7007AAAC1 /* NeighbourViewController.m */,
+				B972DB451D2B4B2E00341166 /* Controller */,
+				B972DB491D2B4B2E00341166 /* Model */,
+				B972DB4A1D2B4B2E00341166 /* View */,
 			);
 			path = Neighbour;
 			sourceTree = "<group>";
@@ -564,6 +567,56 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		B972DB451D2B4B2E00341166 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B972DB461D2B4B2E00341166 /* Neighbour.storyboard */,
+				B972DB471D2B4B2E00341166 /* NeighbourViewController.h */,
+				B972DB481D2B4B2E00341166 /* NeighbourViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B972DB491D2B4B2E00341166 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B972DB4A1D2B4B2E00341166 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B972DB4D1D2B539800341166 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B972DB4E1D2B539800341166 /* MessageBox.storyboard */,
+				B972DB4F1D2B539800341166 /* MessageBoxViewController.h */,
+				B972DB501D2B539800341166 /* MessageBoxViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B972DB511D2B539800341166 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B972DB551D2B540B00341166 /* HJModel.h */,
+				B972DB561D2B540B00341166 /* HJModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B972DB521D2B539800341166 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -626,15 +679,15 @@
 			files = (
 				B90D75FE1CF6EDF700964D3D /* LaunchScreen.storyboard in Resources */,
 				B90D75FB1CF6EDF700964D3D /* Assets.xcassets in Resources */,
-				B9478DD61D0FEFA7007AAAC1 /* MessageBox.storyboard in Resources */,
 				B93C641A1D1CDE9C000F1921 /* GirlCell.xib in Resources */,
+				B972DB531D2B539800341166 /* MessageBox.storyboard in Resources */,
 				B9478DD81D0FEFA7007AAAC1 /* My.storyboard in Resources */,
 				B9478DFA1D13B920007AAAC1 /* test.m4a in Resources */,
+				B972DB4B1D2B4B2E00341166 /* Neighbour.storyboard in Resources */,
 				B9478DE71D0FEFA7007AAAC1 /* YFCustomCell.xib in Resources */,
 				B950E4AA1D22719500D2A11E /* MJRefresh.bundle in Resources */,
 				B9478DE31D0FEFA7007AAAC1 /* GDCustomCell.xib in Resources */,
 				B93C64141D1CDE1B000F1921 /* Search.storyboard in Resources */,
-				B9478DDA1D0FEFA7007AAAC1 /* Neighbour.storyboard in Resources */,
 				B90D75F91CF6EDF700964D3D /* Main.storyboard in Resources */,
 				B9478DDF1D0FEFA7007AAAC1 /* YuanFen.storyboard in Resources */,
 			);
@@ -701,7 +754,6 @@
 				B950E4AE1D22719500D2A11E /* UIView+MJExtension.m in Sources */,
 				B950E49F1D22719500D2A11E /* MJRefreshFooter.m in Sources */,
 				B9478D7A1D0FD7FD007AAAC1 /* MainTabViewController.m in Sources */,
-				B9478DD71D0FEFA7007AAAC1 /* MessageBoxViewController.m in Sources */,
 				B950E49C1D22719500D2A11E /* MJRefreshAutoFooter.m in Sources */,
 				B9478DE61D0FEFA7007AAAC1 /* YFCustomCell.m in Sources */,
 				B950E4AC1D22719500D2A11E /* UIScrollView+MJExtension.m in Sources */,
@@ -712,14 +764,15 @@
 				B9478DA91D0FD9EA007AAAC1 /* SDTransparentPieProgressView.m in Sources */,
 				B950E4A01D22719500D2A11E /* MJRefreshHeader.m in Sources */,
 				B9478DF61D13B733007AAAC1 /* AudioManager.m in Sources */,
+				B972DB571D2B540B00341166 /* HJModel.m in Sources */,
 				B9478DA81D0FD9EA007AAAC1 /* SDRotationLoopProgressView.m in Sources */,
 				B93C64181D1CDE89000F1921 /* GirlCell.m in Sources */,
-				B9478DDB1D0FEFA7007AAAC1 /* NeighbourViewController.m in Sources */,
 				B9478DE51D0FEFA7007AAAC1 /* JLPhotoBrowser.m in Sources */,
 				B9478D791D0FD7FD007AAAC1 /* BaseViewController.m in Sources */,
 				B9478DA41D0FD9EA007AAAC1 /* SDBaseProgressView.m in Sources */,
 				B93C64151D1CDE1B000F1921 /* SearchViewController.m in Sources */,
 				B950E4AD1D22719500D2A11E /* UIScrollView+MJRefresh.m in Sources */,
+				B972DB4C1D2B4B2E00341166 /* NeighbourViewController.m in Sources */,
 				B950E4A51D22719500D2A11E /* MJRefreshBackNormalFooter.m in Sources */,
 				B9478DA61D0FD9EA007AAAC1 /* SDPieLoopProgressView.m in Sources */,
 				B950E49D1D22719500D2A11E /* MJRefreshBackFooter.m in Sources */,
@@ -740,6 +793,7 @@
 				B950E4AB1D22719500D2A11E /* MJRefreshConst.m in Sources */,
 				B9478DE21D0FEFA7007AAAC1 /* GDCustomCell.m in Sources */,
 				B950E4A81D22719500D2A11E /* MJRefreshNormalHeader.m in Sources */,
+				B972DB541D2B539800341166 /* MessageBoxViewController.m in Sources */,
 				B950E49E1D22719500D2A11E /* MJRefreshComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

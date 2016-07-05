@@ -46,6 +46,8 @@
     [self.tabBar setTintColor:[UIColor whiteColor]];
     
     [self setViewControllers:@[homeVC, searchVC, messageVC, neiborVC, myVC]];
+    
+    [self setSelectedIndex:2];
 }
 
 - (void)didReceiveMemoryWarning {
