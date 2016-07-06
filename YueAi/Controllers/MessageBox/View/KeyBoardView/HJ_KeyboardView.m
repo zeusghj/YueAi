@@ -194,6 +194,33 @@ typedef NS_ENUM(NSInteger, KBoardFunsType) {
     [self showSources:YES];
 }
 
+- (void)dismiss
+{
+    if ([self.inputView isFirstResponder]) {
+        [self.inputView resignFirstResponder];
+    }
+    
+    UIViewAnimationOptions opt = animationOptionsWithCurve(_keyboardAnimationCurve);
+    [UIView animateWithDuration:_keyboardAnimationDuration delay:0 options:opt animations:^{
+        self.transform = CGAffineTransformIdentity;
+        if (KeyBoardDelegate.KeyBoardWillDismiss) {
+            [self.delegate keyBoardInputWillDismiss:self];
+        }
+    } completion:^(BOOL finished) {
+        if (KeyBoardDelegate.KeyBoardDidDismiss) {
+            [self.delegate keyBoardInputDidDismiss:self];
+        }
+        CGRect rect = self.frame;
+        if (_recordTextNums > 1) {
+            
+        }else
+        {
+            rect.size.height = _recordInputTextHeight;
+        }
+        
+    }];
+}
+
 /**
  * 视图出现 sources: YES 文字出现  NO 表情+功能按钮出现
  */
