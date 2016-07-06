@@ -397,6 +397,7 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
+    
     if ([scrollView isKindOfClass:[UICollectionView class]]) {
         //collection view
     }else
@@ -439,5 +440,6 @@
     }
     
 }
+
 
 @end
