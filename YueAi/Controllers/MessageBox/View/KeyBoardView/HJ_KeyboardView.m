@@ -168,6 +168,112 @@ typedef NS_ENUM(NSInteger, KBoardFunsType) {
 {
 }
 
+#pragma mark - UITextViewDelegate
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+//    NSLog(@"%s", __func__);
+}
+
+- (BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+//    NSLog(@"%s", __func__);
+    
+    if ([text isEqualToString:@"\n"]) {
+        if (KeyBoardDelegate.KeyBoardSendMsg) {
+            [self.delegate keyBoardSendMsgTextView:self sendMsgText:textView.text];
+        }
+        
+        textView.text = @"" ;
+        __block CGRect rect = self.frame;
+        //需要重新修改funcBackGroundView的高度和自身的高度
+        rect.origin.y = SCREEN_HEIGHT - 64 - KBoardInputBgHeight - _keyboardHeight;
+        //重置记录行数
+        _recordTextNums = 1 ;
+        _recordTextMarginState = NO ;
+        self.frame = rect ;
+        _recordInputTextHeight = KBoardInputBgHeight;
+        if (rect.size.height != KBoardInputBgHeight) {
+            rect.size.height = _recordInputTextHeight;
+            WEAKSELF;
+            [self.funcBackGroundView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.right.top.left.equalTo(weakSelf);
+                make.height.mas_equalTo(_recordInputTextHeight);
+            }];
+        }
+        
+        if (KeyBoardDelegate.KeyBoardWillShow) {
+            [self.delegate keyBoardInputViewWillShow:self];
+        }
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+//    NSLog(@"%s", __func__);
+}
+
+- (CGFloat)calculateInputTextViewHeightWithText:(NSString *)text
+{
+    CGRect rect = [text boundingRectWithSize:CGSizeMake(self.inputView.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.]} context:nil];
+    return ceil(rect.size.height / self.inputView.font.lineHeight) ;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    NSLog(@"%s", __func__);
+    
+    NSInteger row = [self calculateInputTextViewHeightWithText:textView.text];
+    CGRect rect = self.frame;
+    if (row > KInputTextViewMaxNumbers) {
+        return;
+    }
+    //必须更新动画transform基准值，否则在输入超过2行时， 滑动页面输入框 CGAffineTransformIdentity失效
+    if (row != _recordTextNums) {
+        [self showSources:YES];
+        
+        if (_recordTextNums < row) {
+            //行数增加
+            _recordTextLengthChangeState = YES;
+        }else
+        {
+            //行数减少
+            _recordTextLengthChangeState = NO;
+        }
+        _recordTextNums = row;
+        if (!_recordTextMarginState) {
+            _recordTextMarginState = YES;
+            rect.origin.y += KInputTextViewMargin;
+            rect.size.height -= KInputTextViewMargin;
+        }
+        if (_recordTextLengthChangeState) {
+            rect.origin.y -= self.inputView.font.lineHeight;
+            rect.size.height += self.inputView.font.lineHeight;
+        }else
+        {
+            rect.origin.y += self.inputView.font.lineHeight;
+            rect.size.height -= self.inputView.font.lineHeight;
+        }
+        //记录funcBackGroundView的真实高度
+        _recordInputTextHeight = KBoardInputBgHeight + self.inputView.font.lineHeight * (row - 1) - KInputTextViewMargin;
+        
+        self.frame = rect;
+        
+        if (KeyBoardDelegate.KeyBoardWillShow) {
+            [self.delegate keyBoardInputViewWillShow:self];
+        }
+        WEAKSELF;
+        [self.funcBackGroundView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.right.top.left.equalTo(weakSelf);
+            make.height.mas_equalTo(_recordInputTextHeight);
+        }];
+        [textView scrollRangeToVisible:NSRangeFromString(textView.text)];
+    }
+}
+
 #pragma mark - public funs
 - (BOOL)keyFrameWithNoti:(NSNotification *)noti
 {
@@ -323,7 +429,7 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
         _inputView.returnKeyType = UIReturnKeySend;
         _inputView.enablesReturnKeyAutomatically = YES;
         _inputView.layoutManager.allowsNonContiguousLayout = NO;
-        _inputView.textAlignment = NSTextAlignmentNatural;
+        _inputView.textAlignment = NSTextAlignmentLeft;
     }
     return _inputView;
 }
@@ -395,35 +501,6 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -17,6 +17,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #define KBackgroundColor UIColorFromRGB(0xEBEBEB)
 
+// device verson float value
+#define CURRENT_SYS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
+#define DSTEXTFONT(float) [UIFont systemFontOfSize:float]
+
 //block self define
 #define WEAKSELF typeof(self) __weak weakSelf = self;
 #define STRONGSELF typeof(weakSelf)__strong strongSelf = weakSelf;

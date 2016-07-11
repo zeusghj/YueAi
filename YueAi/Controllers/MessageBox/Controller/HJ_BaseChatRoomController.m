@@ -7,8 +7,12 @@
 //
 
 #import "HJ_BaseChatRoomController.h"
+#import "HJModel.h"
+#import "HJ_UserHeader.h"
+#import "HJ_BaseChatRoomCell.h"
+#import "HJ_ChatRoomManager.h"
 
-static NSString* identifier = @"UITableViewCellIDS";
+static NSString* identifier = @"HJ_BaseChatRoomCell";
 
 @interface HJ_BaseChatRoomController ()
 {
@@ -23,7 +27,7 @@ static NSString* identifier = @"UITableViewCellIDS";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = KBackgroundColor;
-    
+    [self registerTableViewCellClass];
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.keyBoardView];
     [self updateViewsConstraintsWithState:YES];
@@ -32,6 +36,21 @@ static NSString* identifier = @"UITableViewCellIDS";
 - (void)dealloc
 {
     NSLog(@"%s", __func__);
+}
+
+- (NSMutableArray *)msgArray
+{
+    if (!_msgArray) {
+        _msgArray = [NSMutableArray new];
+    }
+    
+    return _msgArray;
+}
+
+- (void)registerTableViewCellClass
+{
+    [self.tableView registerClass:[HJ_BaseChatRoomCell class] forCellReuseIdentifier:identifier];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)updateViewsConstraintsWithState:(BOOL)state
@@ -129,6 +148,49 @@ static NSString* identifier = @"UITableViewCellIDS";
     _scrollViewState = NO;
 }
 
+#pragma mark - HJ_KeyboardViewDelegate
+- (void)keyBoardSendMsgTextView:(HJ_KeyboardView *)view sendMsgText:(NSString *)text
+{
+    NSLog(@"text = %@", text);
+    
+    HJModel *model = [self cofigMsgStrcutWithMsg:text];
+    NSMutableArray *array = [self.msgArray mutableCopy];
+    [array addObject:model];
+    self.msgArray = array;
+    self.dataSourceArray = [self.msgArray mutableCopy];
+    NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:1];
+    [indexPaths addObject:[NSIndexPath indexPathForRow:self.dataSourceArray.count - 1 inSection:0]];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+    [self scrollViewToBottom];
+}
+
+#pragma mark - 组建消息结构体
+- (HJModel *)cofigMsgStrcutWithMsg:(NSString *)msg
+{
+    static int i = 1;
+    
+    HJModel *model = [[HJModel alloc] init];
+    HJ_UserTool *user = [HJ_UserTool shareInstance];
+    model.userIcon = user.userModel.icon;
+    
+    if (i % 2 == 1) {
+        model.msgSources = YES;
+    }else
+    {
+        model.msgSources = NO;
+    }
+    
+    i ++;
+    
+    model.userName = user.userModel.name;
+    model.msg = msg;
+    model.msg_Type = 1;
+    model.timestamp = @"18:43";
+    model.showTimestamp = YES;
+    model.chatMsgId = user.userModel.userId;
+    return model;
+}
+
 #pragma mark - UITableViewDelegate  and UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -137,18 +199,23 @@ static NSString* identifier = @"UITableViewCellIDS";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.dataSourceArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    
+    HJ_BaseChatRoomCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    cell.msgModel = self.dataSourceArray[indexPath.row];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    HJModel *msg = self.dataSourceArray[indexPath.row];
+    if (msg.cacheMsgSize.height <= 0.f) {
+        return [HJ_ChatRoomManager calculateCellHeightWithMsg:msg];
+    }
+    return msg.cacheMsgSize.height;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

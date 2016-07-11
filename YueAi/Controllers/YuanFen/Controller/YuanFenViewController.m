@@ -102,8 +102,9 @@
         }
         
         NSURL *URL = [NSURL URLWithString:@"http://192.168.1.40:5000/homepage/?limit=16"];
+
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", nil];
         [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
             
             if (self.users.count != 0) {
@@ -140,6 +141,7 @@
         }
         
         NSString* requestUrl = [NSString stringWithFormat:@"http://192.168.1.40:5000/homepage/?limit=16&offset=%lu", (unsigned long)self.users.count];
+        
         NSURL *URL = [NSURL URLWithString:requestUrl];
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
