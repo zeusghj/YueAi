@@ -264,7 +264,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"点击了第 %ld 组， 第 %ld 行", indexPath.section, indexPath.row) ;
+    NSLog(@"点击了第 %ld 组， 第 %ld 行", (long)indexPath.section, (long)indexPath.row) ;
 }
 
 #pragma mark - UITableViewDataSource

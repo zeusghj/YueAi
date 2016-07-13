@@ -130,7 +130,7 @@
             }];
             
             UILabel* timeLb = [[UILabel alloc] init];
-            timeLb.text = [NSString stringWithFormat:@"%ldS", _model.time];
+            timeLb.text = [NSString stringWithFormat:@"%ldS", (long)_model.time];
             timeLb.textColor = [UIColor lightGrayColor];
             [imgView2 addSubview:timeLb];
             [timeLb mas_makeConstraints:^(MASConstraintMaker *make) {

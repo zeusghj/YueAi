@@ -9,18 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "HJ_KeyboardView.h"
 
-@interface HJ_BaseChatRoomController : UIViewController<UITableViewDataSource,UITableViewDelegate, HJ_KeyboardViewDelegate>
+@interface HJ_BaseChatRoomController : UIViewController<UITableViewDataSource, UITableViewDelegate, HJ_KeyboardViewDelegate>
 
 @property (nonatomic, strong) UITableView* tableView;
 @property (nonatomic, strong) HJ_KeyboardView* keyBoardView;
 
 @property (nonatomic, strong) NSMutableArray* msgArray;
 @property (nonatomic, strong) NSArray *dataSourceArray;
-
-/**
- * Scroll to the bottom for the first time in msg unread
- */
-//- (void)scrollToRow;
 
 /**
  * 滚到底部

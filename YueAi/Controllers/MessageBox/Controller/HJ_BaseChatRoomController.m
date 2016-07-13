@@ -16,7 +16,7 @@ static NSString* identifier = @"HJ_BaseChatRoomCell";
 
 @interface HJ_BaseChatRoomController ()
 {
-    //当弹出键盘时，内容会向上滚动，不应该让键盘dissmiss
+    //当弹出键盘时，内容会向上滚动，此时不能让键盘dissmiss
     BOOL _scrollViewState;
 }
 
@@ -119,14 +119,14 @@ static NSString* identifier = @"HJ_BaseChatRoomCell";
     _scrollViewState = NO;
 }
 
-- (void)keyBoardInputWillDismiss:(HJ_KeyboardView *)view
+- (void)keyBoardInputViewWillDismiss:(HJ_KeyboardView *)view
 {
     [self updateViewsConstraintsWithState:NO];
     [self setTableViewInsetsWithBottomValue:self.view.frame.size.height
      - self.keyBoardView.frame.origin.y];
 }
 
-- (void)keyBoardInputDidDismiss:(HJ_KeyboardView *)view
+- (void)keyBoardInputViewDidDismiss:(HJ_KeyboardView *)view
 {
 }
 
@@ -135,9 +135,6 @@ static NSString* identifier = @"HJ_BaseChatRoomCell";
     _scrollViewState = YES;
     NSInteger rows = [self.tableView numberOfRowsInSection:0];
     if (rows == 0) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.dataSourceArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-        });
         return;
     }
     if (rows > 0) {
@@ -151,8 +148,6 @@ static NSString* identifier = @"HJ_BaseChatRoomCell";
 #pragma mark - HJ_KeyboardViewDelegate
 - (void)keyBoardSendMsgTextView:(HJ_KeyboardView *)view sendMsgText:(NSString *)text
 {
-    NSLog(@"text = %@", text);
-    
     HJModel *model = [self cofigMsgStrcutWithMsg:text];
     NSMutableArray *array = [self.msgArray mutableCopy];
     [array addObject:model];
@@ -160,7 +155,7 @@ static NSString* identifier = @"HJ_BaseChatRoomCell";
     self.dataSourceArray = [self.msgArray mutableCopy];
     NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:1];
     [indexPaths addObject:[NSIndexPath indexPathForRow:self.dataSourceArray.count - 1 inSection:0]];
-    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationBottom];
     [self scrollViewToBottom];
 }
 
@@ -231,46 +226,3 @@ static NSString* identifier = @"HJ_BaseChatRoomCell";
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

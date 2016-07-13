@@ -21,12 +21,10 @@ typedef NS_ENUM(NSInteger, HJ_KeyboardViewFuncItemType) {
 @optional
 - (void)keyBoardInputViewWillShow:(HJ_KeyboardView *)view;
 - (void)keyBoardInputViewDidShow:(HJ_KeyboardView *)view;
-- (void)keyBoardInputWillDismiss:(HJ_KeyboardView *)view;
-- (void)keyBoardInputDidDismiss:(HJ_KeyboardView *)view;
+- (void)keyBoardInputViewWillDismiss:(HJ_KeyboardView *)view;
+- (void)keyBoardInputViewDidDismiss:(HJ_KeyboardView *)view;
 
-/**
- *  文字 send
- */
+
 - (void)keyBoardSendMsgTextView:(HJ_KeyboardView *)view sendMsgText:(NSString *)text;
 
 @end

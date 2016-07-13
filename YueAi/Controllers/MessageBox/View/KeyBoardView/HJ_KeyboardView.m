@@ -7,6 +7,8 @@
 //
 
 #import "HJ_KeyboardView.h"
+#import "HJ_KeyboardEmjView.h"
+#import "PressButton.h"
 
 //功能键宽度/高度
 const CGFloat KBoardVoiceWidth = 35.f;
@@ -17,7 +19,7 @@ const CGFloat KBoardInputBgHeight = 49.f;
 //输入框文字偏差调整
 const CGFloat KInputTextViewMargin = 15.5f;
 //输入框文字最多显示的行数
-const NSInteger KInputTextViewMaxNumbers = 5;
+const NSInteger KInputTextViewMaxNumbers = 1;
 
 typedef NS_ENUM(NSInteger, KBoardFunsType) {
     KBoardFunsTypeNone,
@@ -59,10 +61,10 @@ typedef NS_ENUM(NSInteger, KBoardFunsType) {
 @property (nonatomic, strong)UIButton* voiceButton;
 @property (nonatomic, strong)UIButton* emjButton;
 @property (nonatomic, strong)UIButton* addButton;
-@property (nonatomic, strong)UIButton* pressButton;
+@property (nonatomic, strong)PressButton* pressButton;
 
 //emj 视图
-@property (nonatomic,strong)UIView *emjView;
+@property (nonatomic,strong)HJ_KeyboardEmjView *emjView;
 // 功能 视图
 @property (nonatomic,strong)UIView *funsView;
 //emj/功能 切换 当前处于哪个视图
@@ -140,14 +142,12 @@ typedef NS_ENUM(NSInteger, KBoardFunsType) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(funcPanelEvent:) name:KFunsItemCellIndexPathNoti object:nil];
 }
 
 #pragma mark - keyBoardObserver Funs
-- (void)keyboardWillShow:(NSNotification *)noti
+- (void)keyboardWillShow:(NSNotification *)notify
 {
-    BOOL state = [self keyFrameWithNoti:noti];
+    BOOL state = [self keyFrameWithNotification:notify];
     //在键盘弹出的时候回多次接受到通知的frame变化信息，过滤掉第一次消除键盘和功能键切换中变化过程
     if (!state) {
         return;
@@ -155,36 +155,34 @@ typedef NS_ENUM(NSInteger, KBoardFunsType) {
     [self show];
 }
 
-- (void)keyboardDidShow:(NSNotification *)noti
+- (void)keyboardDidShow:(NSNotification *)notify
 {
 }
 
-- (void)keyboardWillHide:(NSNotification *)noti
+- (void)keyboardWillHide:(NSNotification *)notify
 {
-    [self keyFrameWithNoti:noti];
+    [self keyFrameWithNotification:notify];
 }
 
-- (void)keyboardDidHide:(NSNotification *)noti
+- (void)keyboardDidHide:(NSNotification *)notify
 {
 }
 
 #pragma mark - UITextViewDelegate
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-//    NSLog(@"%s", __func__);
+    _voiceState = YES;
 }
 
 - (BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-//    NSLog(@"%s", __func__);
-    
     if ([text isEqualToString:@"\n"]) {
         if (KeyBoardDelegate.KeyBoardSendMsg) {
             [self.delegate keyBoardSendMsgTextView:self sendMsgText:textView.text];
         }
         
         textView.text = @"" ;
-        __block CGRect rect = self.frame;
+        CGRect rect = self.frame;
         //需要重新修改funcBackGroundView的高度和自身的高度
         rect.origin.y = SCREEN_HEIGHT - 64 - KBoardInputBgHeight - _keyboardHeight;
         //重置记录行数
@@ -193,7 +191,7 @@ typedef NS_ENUM(NSInteger, KBoardFunsType) {
         self.frame = rect ;
         _recordInputTextHeight = KBoardInputBgHeight;
         if (rect.size.height != KBoardInputBgHeight) {
-            rect.size.height = _recordInputTextHeight;
+            
             WEAKSELF;
             [self.funcBackGroundView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.right.top.left.equalTo(weakSelf);
@@ -218,72 +216,25 @@ typedef NS_ENUM(NSInteger, KBoardFunsType) {
 
 - (CGFloat)calculateInputTextViewHeightWithText:(NSString *)text
 {
-    CGRect rect = [text boundingRectWithSize:CGSizeMake(self.inputView.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.]} context:nil];
+    CGRect rect = [text boundingRectWithSize:CGSizeMake(self.inputView.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.]} context:nil];
     return ceil(rect.size.height / self.inputView.font.lineHeight) ;
 }
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    NSLog(@"%s", __func__);
     
-    NSInteger row = [self calculateInputTextViewHeightWithText:textView.text];
-    CGRect rect = self.frame;
-    if (row > KInputTextViewMaxNumbers) {
-        return;
-    }
-    //必须更新动画transform基准值，否则在输入超过2行时， 滑动页面输入框 CGAffineTransformIdentity失效
-    if (row != _recordTextNums) {
-        [self showSources:YES];
-        
-        if (_recordTextNums < row) {
-            //行数增加
-            _recordTextLengthChangeState = YES;
-        }else
-        {
-            //行数减少
-            _recordTextLengthChangeState = NO;
-        }
-        _recordTextNums = row;
-        if (!_recordTextMarginState) {
-            _recordTextMarginState = YES;
-            rect.origin.y += KInputTextViewMargin;
-            rect.size.height -= KInputTextViewMargin;
-        }
-        if (_recordTextLengthChangeState) {
-            rect.origin.y -= self.inputView.font.lineHeight;
-            rect.size.height += self.inputView.font.lineHeight;
-        }else
-        {
-            rect.origin.y += self.inputView.font.lineHeight;
-            rect.size.height -= self.inputView.font.lineHeight;
-        }
-        //记录funcBackGroundView的真实高度
-        _recordInputTextHeight = KBoardInputBgHeight + self.inputView.font.lineHeight * (row - 1) - KInputTextViewMargin;
-        
-        self.frame = rect;
-        
-        if (KeyBoardDelegate.KeyBoardWillShow) {
-            [self.delegate keyBoardInputViewWillShow:self];
-        }
-        WEAKSELF;
-        [self.funcBackGroundView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.right.top.left.equalTo(weakSelf);
-            make.height.mas_equalTo(_recordInputTextHeight);
-        }];
-        [textView scrollRangeToVisible:NSRangeFromString(textView.text)];
-    }
 }
 
 #pragma mark - public funs
-- (BOOL)keyFrameWithNoti:(NSNotification *)noti
+- (BOOL)keyFrameWithNotification:(NSNotification *)notify
 {
-    NSNumber *duration = [[noti userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *duration = [[notify userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     if (duration!=nil && [duration isKindOfClass:[NSNumber class]])
         _keyboardAnimationDuration = [duration floatValue];
-    duration = [[noti userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    duration = [[notify userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey];
     if (duration!=nil && [duration isKindOfClass:[NSNumber class]])
         _keyboardAnimationCurve = [duration integerValue];
-    NSValue *value = [[noti userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSValue *value = [[notify userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey];
     if ([value isKindOfClass:[NSValue class]])
     {
         CGRect rect = [value CGRectValue];
@@ -297,51 +248,11 @@ typedef NS_ENUM(NSInteger, KBoardFunsType) {
 
 - (void)show
 {
-    [self showSources:YES];
-}
-
-- (void)dismiss
-{
-    if ([self.inputView isFirstResponder]) {
-        [self.inputView resignFirstResponder];
-    }
-    
-    UIViewAnimationOptions opt = animationOptionsWithCurve(_keyboardAnimationCurve);
-    [UIView animateWithDuration:_keyboardAnimationDuration delay:0 options:opt animations:^{
-        self.transform = CGAffineTransformIdentity;
-        if (KeyBoardDelegate.KeyBoardWillDismiss) {
-            [self.delegate keyBoardInputWillDismiss:self];
-        }
-    } completion:^(BOOL finished) {
-        if (KeyBoardDelegate.KeyBoardDidDismiss) {
-            [self.delegate keyBoardInputDidDismiss:self];
-        }
-        CGRect rect = self.frame;
-        if (_recordTextNums > 1) {
-            
-        }else
-        {
-            rect.size.height = _recordInputTextHeight;
-        }
-        
-    }];
-}
-
-/**
- * 视图出现 sources: YES 文字出现  NO 表情+功能按钮出现
- */
-- (void)showSources:(BOOL)sources
-{
     CGRect rect = self.frame;
     CGFloat height = _keyboardHeight;
-    if (sources) {
-        rect.size.height = _recordInputTextHeight + _keyboardHeight;
-    }else {
-        rect.size.height = _recordInputTextHeight + KFunsPanelHeight;
-        height = KFunsPanelHeight;
-    }
-
+    rect.size.height = _recordInputTextHeight + _keyboardHeight;
     self.frame = rect;
+    
     UIViewAnimationOptions opt = animationOptionsWithCurve(_keyboardAnimationCurve);
     if (_keyboardAnimationDuration == 0) {
         _keyboardAnimationDuration = 0.25;
@@ -356,14 +267,29 @@ typedef NS_ENUM(NSInteger, KBoardFunsType) {
         if (KeyBoardDelegate.KeyBoardDidShow) {
             [self.delegate keyBoardInputViewDidShow:self];
         }
-        if (sources) {
-            if ([self.emjView superview] || [self.funsView superview]) {
-//                [self keyBoardFunsPanelDismiss];
-            }
-        }
+        
         if ([self.pressButton superview] && self.frame.size.height != _recordInputTextHeight) {
             [self.pressButton removeFromSuperview];
             [self.voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoice.png"] forState:UIControlStateNormal];
+        }
+    }];
+}
+
+- (void)dismiss
+{
+    if ([self.inputView isFirstResponder]) {
+        [self.inputView resignFirstResponder];
+    }
+    
+    UIViewAnimationOptions opt = animationOptionsWithCurve(_keyboardAnimationCurve);
+    [UIView animateWithDuration:_keyboardAnimationDuration delay:0 options:opt animations:^{
+        self.transform = CGAffineTransformIdentity;
+        if (KeyBoardDelegate.KeyBoardWillDismiss) {
+            [self.delegate keyBoardInputViewWillDismiss:self];
+        }
+    } completion:^(BOOL finished) {
+        if (KeyBoardDelegate.KeyBoardDidDismiss) {
+            [self.delegate keyBoardInputViewDidDismiss:self];
         }
     }];
 }
@@ -376,14 +302,51 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
 }
 
 #pragma mark - button action
-- (void)voiceAction:(UIButton *)btn
+- (void)voiceAction:(UIButton *)sender
 {
     NSLog(@"%s", __func__);
+    sender.selected = !sender.selected;
+    
+    if (sender.selected) {
+        if (self.inputView.text) {
+            self.inputView.text = nil;
+        }
+        [self addSubview:self.pressButton];
+        [self.pressButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(self.inputView);
+        }];
+        if (_voiceState) {
+            [self.inputView resignFirstResponder];
+            [self dismiss];
+        }
+        _voiceState = YES;
+        
+    } else {
+        [self.inputView becomeFirstResponder];
+        [self.pressButton removeFromSuperview];
+    }
+    
 }
 
-- (void)emjAction:(UIButton *)btn
+- (void)emjAction:(UIButton *)sender
 {
-    NSLog(@"%s", __func__);
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        self.inputView.inputView = self.emjView;
+        if ([self.inputView isFirstResponder]) {
+            [self.inputView reloadInputViews];
+        }else{
+            [self.inputView becomeFirstResponder];
+        }
+    }else
+    {
+        self.inputView.inputView = nil;
+        if ([self.inputView isFirstResponder]) {
+            [self.inputView reloadInputViews];
+        }else{
+            [self.inputView becomeFirstResponder];
+        }
+    }
 }
 
 - (void)addAction:(UIButton *)btn
@@ -394,18 +357,18 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
 - (void)pressButton:(UIButton *)btn
 {
     NSLog(@"%s", __func__);
+    
 }
 
 #pragma mark - setter 赋值
 - (void)setDelegate:(id<HJ_KeyboardViewDelegate>)delegate
 {
     _delegate = delegate;
-    KeyBoardDelegate.KeyBoardWillShow = [_delegate respondsToSelector:@selector(keyBoardInputViewWillShow:)];
-    KeyBoardDelegate.KeyBoardDidShow = [_delegate respondsToSelector:@selector(keyBoardInputViewDidShow:)];
-    KeyBoardDelegate.KeyBoardWillDismiss = [_delegate respondsToSelector:@selector(keyBoardInputWillDismiss:)];
-    KeyBoardDelegate.KeyBoardDidDismiss = [_delegate respondsToSelector:@selector(keyBoardInputDidDismiss:)];
-//    KeyBoardDelegate.KeyBoardItemCellClick = [_delegate respondsToSelector:@selector(keyBoardFunsItemCell:currentPanelPage:currentPanelIndex:)];
-    KeyBoardDelegate.KeyBoardSendMsg = [_delegate respondsToSelector:@selector(keyBoardSendMsgTextView:sendMsgText:)];
+    KeyBoardDelegate.KeyBoardWillShow    = [_delegate respondsToSelector:@selector(keyBoardInputViewWillShow:)];
+    KeyBoardDelegate.KeyBoardDidShow     = [_delegate respondsToSelector:@selector(keyBoardInputViewDidShow:)];
+    KeyBoardDelegate.KeyBoardWillDismiss = [_delegate respondsToSelector:@selector(keyBoardInputViewWillDismiss:)];
+    KeyBoardDelegate.KeyBoardDidDismiss  = [_delegate respondsToSelector:@selector(keyBoardInputViewDidDismiss:)];
+    KeyBoardDelegate.KeyBoardSendMsg     = [_delegate respondsToSelector:@selector(keyBoardSendMsgTextView:sendMsgText:)];
 }
 
 #pragma mark - getter
@@ -425,12 +388,14 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
         _inputView.layer.masksToBounds = YES;
         _inputView.layer.cornerRadius = 3.f;
         _inputView.delegate = self;
+//        _inputView.scrollEnabled = NO;
         _inputView.font = [UIFont systemFontOfSize:16.f];
         _inputView.returnKeyType = UIReturnKeySend;
         _inputView.enablesReturnKeyAutomatically = YES;
-        _inputView.layoutManager.allowsNonContiguousLayout = NO;
+        _inputView.layoutManager.allowsNonContiguousLayout = YES;
         _inputView.textAlignment = NSTextAlignmentLeft;
     }
+    
     return _inputView;
 }
 
@@ -439,6 +404,7 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
     if (!_voiceButton) {
         _voiceButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoice.png"] forState:UIControlStateNormal];
+        [_voiceButton setImage:[UIImage imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
         [_voiceButton addTarget:self action:@selector(voiceAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _voiceButton;
@@ -449,7 +415,7 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
     if (!_emjButton) {
         _emjButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_emjButton setImage:[UIImage imageNamed:@"ToolViewEmotion.png"] forState:UIControlStateNormal];
-        [_emjButton setImage:[UIImage imageNamed:@"ToolViewEmotionHL.png"] forState:UIControlStateHighlighted];
+        [_emjButton setImage:[UIImage imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
         [_emjButton addTarget:self action:@selector(emjAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _emjButton;
@@ -469,11 +435,7 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
 - (UIButton *)pressButton
 {
     if (!_pressButton) {
-        _pressButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_pressButton addTarget:self action:@selector(pressButton:) forControlEvents:UIControlEventTouchUpInside];
-        [_pressButton setTitle:@"pressVocie" forState:UIControlStateNormal];
-        [_pressButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_pressButton setBackgroundColor:UIColorFromRGB(0xf4f4f6)];
+        _pressButton = [[PressButton alloc]init];
         [_pressButton.layer setMasksToBounds:YES];
         [_pressButton.layer setCornerRadius:3.0];
         [_pressButton.layer setBorderWidth:1.0];
@@ -487,7 +449,8 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
 - (UIView *)emjView
 {
     if (!_emjView) {
-        _emjView = [[UIView alloc] init];
+        _emjView = [[HJ_KeyboardEmjView alloc] init];
+        _emjView.inputDelegate = self.inputView;
     }
     return _emjView;
 }

@@ -119,6 +119,8 @@
 		B972DB531D2B539800341166 /* MessageBox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B972DB4E1D2B539800341166 /* MessageBox.storyboard */; };
 		B972DB541D2B539800341166 /* MessageBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B972DB501D2B539800341166 /* MessageBoxViewController.m */; };
 		B972DB571D2B540B00341166 /* HJModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B972DB561D2B540B00341166 /* HJModel.m */; };
+		B9AFF35A1D34E05900F49ADA /* HJ_KeyboardEmjView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AFF3591D34E05900F49ADA /* HJ_KeyboardEmjView.m */; };
+		B9AFF35C1D34E3F500F49ADA /* emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9AFF35B1D34E3F500F49ADA /* emoji.plist */; };
 		B9B308B01D33A3D6000D6C7A /* icon1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B9B308A91D33A3D6000D6C7A /* icon1.jpg */; };
 		B9B308B11D33A3D6000D6C7A /* icon2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B9B308AA1D33A3D6000D6C7A /* icon2.jpg */; };
 		B9B308B21D33A3D6000D6C7A /* IMG_1208.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B9B308AB1D33A3D6000D6C7A /* IMG_1208.JPG */; };
@@ -127,6 +129,7 @@
 		B9B308B51D33A3D6000D6C7A /* user3.png in Resources */ = {isa = PBXBuildFile; fileRef = B9B308AE1D33A3D6000D6C7A /* user3.png */; };
 		B9B308B61D33A3D6000D6C7A /* user4.png in Resources */ = {isa = PBXBuildFile; fileRef = B9B308AF1D33A3D6000D6C7A /* user4.png */; };
 		B9B308B91D33A865000D6C7A /* HJ_ChatRoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B308B81D33A865000D6C7A /* HJ_ChatRoomManager.m */; };
+		B9B3AB9B1D35EABC004CD740 /* PressButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B3AB9A1D35EABC004CD740 /* PressButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -306,6 +309,9 @@
 		B972DB501D2B539800341166 /* MessageBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBoxViewController.m; sourceTree = "<group>"; };
 		B972DB551D2B540B00341166 /* HJModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJModel.h; sourceTree = "<group>"; };
 		B972DB561D2B540B00341166 /* HJModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJModel.m; sourceTree = "<group>"; };
+		B9AFF3581D34E05900F49ADA /* HJ_KeyboardEmjView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJ_KeyboardEmjView.h; sourceTree = "<group>"; };
+		B9AFF3591D34E05900F49ADA /* HJ_KeyboardEmjView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJ_KeyboardEmjView.m; sourceTree = "<group>"; };
+		B9AFF35B1D34E3F500F49ADA /* emoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji.plist; sourceTree = "<group>"; };
 		B9B308A91D33A3D6000D6C7A /* icon1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon1.jpg; sourceTree = "<group>"; };
 		B9B308AA1D33A3D6000D6C7A /* icon2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon2.jpg; sourceTree = "<group>"; };
 		B9B308AB1D33A3D6000D6C7A /* IMG_1208.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1208.JPG; sourceTree = "<group>"; };
@@ -315,6 +321,8 @@
 		B9B308AF1D33A3D6000D6C7A /* user4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user4.png; sourceTree = "<group>"; };
 		B9B308B71D33A865000D6C7A /* HJ_ChatRoomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJ_ChatRoomManager.h; sourceTree = "<group>"; };
 		B9B308B81D33A865000D6C7A /* HJ_ChatRoomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJ_ChatRoomManager.m; sourceTree = "<group>"; };
+		B9B3AB991D35EABC004CD740 /* PressButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PressButton.h; sourceTree = "<group>"; };
+		B9B3AB9A1D35EABC004CD740 /* PressButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PressButton.m; sourceTree = "<group>"; };
 		D967A46A904722CEF7B04DA0 /* Pods-YueAi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YueAi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YueAi/Pods-YueAi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -750,9 +758,13 @@
 		B9683FE21D2CD96900E8AABF /* KeyBoardView */ = {
 			isa = PBXGroup;
 			children = (
-				B9683FE91D2D001500E8AABF /* Resources */,
 				B9683FE61D2CE15300E8AABF /* HJ_KeyboardView.h */,
 				B9683FE71D2CE15300E8AABF /* HJ_KeyboardView.m */,
+				B9AFF3581D34E05900F49ADA /* HJ_KeyboardEmjView.h */,
+				B9AFF3591D34E05900F49ADA /* HJ_KeyboardEmjView.m */,
+				B9B3AB991D35EABC004CD740 /* PressButton.h */,
+				B9B3AB9A1D35EABC004CD740 /* PressButton.m */,
+				B9683FE91D2D001500E8AABF /* Resources */,
 			);
 			path = KeyBoardView;
 			sourceTree = "<group>";
@@ -835,6 +847,7 @@
 		B972DB511D2B539800341166 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B9AFF35B1D34E3F500F49ADA /* emoji.plist */,
 				B972DB551D2B540B00341166 /* HJModel.h */,
 				B972DB561D2B540B00341166 /* HJModel.m */,
 				B91D9A531D3386BA00664197 /* HJ_ChatMessage.h */,
@@ -934,6 +947,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9AFF35C1D34E3F500F49ADA /* emoji.plist in Resources */,
 				B968401A1D2D001500E8AABF /* sharemorePay@2x.png in Resources */,
 				B968401C1D2D001500E8AABF /* ToolViewEmotion@2x.png in Resources */,
 				B968401D1D2D001500E8AABF /* ToolViewEmotion@3x.png in Resources */,
@@ -1094,6 +1108,8 @@
 				B950E4A71D22719500D2A11E /* MJRefreshGifHeader.m in Sources */,
 				B9478DA31D0FD9EA007AAAC1 /* SDBallProgressView.m in Sources */,
 				B950E4A21D22719500D2A11E /* MJRefreshAutoNormalFooter.m in Sources */,
+				B9B3AB9B1D35EABC004CD740 /* PressButton.m in Sources */,
+				B9AFF35A1D34E05900F49ADA /* HJ_KeyboardEmjView.m in Sources */,
 				B91D9A611D338AB900664197 /* HJ_UserTool.m in Sources */,
 				B950E4A41D22719500D2A11E /* MJRefreshBackGifFooter.m in Sources */,
 				B9478DE41D0FEFA7007AAAC1 /* JLPhoto.m in Sources */,
@@ -1226,12 +1242,15 @@
 			baseConfigurationReference = D967A46A904722CEF7B04DA0 /* Pods-YueAi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YueAi/PrefixHeader.pch";
 				INFOPLIST_FILE = YueAi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adwan.YueAi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eliel.ibuk5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1240,12 +1259,15 @@
 			baseConfigurationReference = 09B382FD608A68800DB59ABB /* Pods-YueAi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YueAi/PrefixHeader.pch";
 				INFOPLIST_FILE = YueAi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adwan.YueAi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eliel.ibuk5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
